@@ -15,7 +15,7 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-							"status":{
+							"kitstatus":{
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
@@ -23,11 +23,9 @@ var schemas = `
                                 "description": "list of elements in the kit",
 								"properties":{
 									"name":{
-										"description":"element name inside kit",
 										"type":"string"
 									},
 									"status":{
-										"description":"element status",
 										"type":"string"
 									}
 								},
@@ -168,7 +166,7 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-							"status":{
+							"kitstatus":{
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
@@ -176,11 +174,9 @@ var schemas = `
                                 "description": "list of elements in the kit",
 								"properties":{
 									"name":{
-										"description":"element name inside kit",
 										"type":"string"
 									},
 									"status":{
-										"description":"element status",
 										"type":"string"
 									}
 								},
@@ -266,7 +262,7 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-							"status":{
+							"kitstatus":{
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
@@ -274,11 +270,9 @@ var schemas = `
                                 "description": "list of elements in the kit",
 								"properties":{
 									"name":{
-										"description":"element name inside kit",
 										"type":"string"
 									},
 									"status":{
-										"description":"element status",
 										"type":"string"
 									}
 								},
@@ -336,7 +330,7 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-							"status":{
+							"kitstatus":{
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
@@ -344,11 +338,9 @@ var schemas = `
                                 "description": "list of elements in the kit",
 								"properties":{
 									"name":{
-										"description":"element name inside kit",
 										"type":"string"
 									},
 									"status":{
-										"description":"element status",
 										"type":"string"
 									}
 								},
@@ -397,7 +389,7 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-							"status":{
+							"kitstatus":{
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
@@ -405,11 +397,9 @@ var schemas = `
                                 "description": "list of elements in the kit",
 								"properties":{
 									"name":{
-										"description":"element name inside kit",
 										"type":"string"
 									},
 									"status":{
-										"description":"element status",
 										"type":"string"
 									}
 								},
