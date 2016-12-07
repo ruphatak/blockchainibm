@@ -19,18 +19,7 @@ var schemas = `
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
-                            "elementList": {
-                                "description": "list of elements in the kit",
-								"properties":{
-									"name":{
-										"type":"string"
-									},
-									"status":{
-										"type":"string"
-									}
-								},
-                                "type": "object"
-                            },
+                           
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
@@ -170,18 +159,7 @@ var schemas = `
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
-                            "elementList": {
-                                "description": "list of elements in the kit",
-								"properties":{
-									"name":{
-										"type":"string"
-									},
-									"status":{
-										"type":"string"
-									}
-								},
-                                "type": "object"
-                            },
+                           
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
@@ -266,18 +244,7 @@ var schemas = `
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
-                            "elementList": {
-                                "description": "list of elements in the kit",
-								"properties":{
-									"name":{
-										"type":"string"
-									},
-									"status":{
-										"type":"string"
-									}
-								},
-                                "type": "object"
-                            },
+                            
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
@@ -334,18 +301,6 @@ var schemas = `
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
-                            "elementList": {
-                                "description": "list of elements in the kit",
-								"properties":{
-									"name":{
-										"type":"string"
-									},
-									"status":{
-										"type":"string"
-									}
-								},
-                                "type": "object"
-                            },
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
@@ -393,18 +348,6 @@ var schemas = `
 								"description","kit status defines the state of kit wheather kit is open or close",
 								"type":"string"
 							},
-                            "elementList": {
-                                "description": "list of elements in the kit",
-								"properties":{
-									"name":{
-										"type":"string"
-									},
-									"status":{
-										"type":"string"
-									}
-								},
-                                "type": "object"
-                            },
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
