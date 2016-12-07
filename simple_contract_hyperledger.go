@@ -59,16 +59,10 @@ type Geolocation struct {
     Longitude   *float64 `json:"longitude,omitempty"`
 }
 
-type ElementListAsset struct {
-      Name    *string  `json:"name,omitempty"`
-	  Status  *string  `json:"status,omitempty"`
-}
-
 type AssetState struct {
     AssetID        *string       			    `json:"assetID,omitempty"`        // all assets must have an ID, primary key of contract
-	Status		   *string	     			    `json:"kitstatus,omitempty"` 
-	Element		   *ElementListAsset	        `json:"elementList,omitempty"` 
-    Location       *Geolocation  				`json:"location,omitempty"`       // current asset location
+    Status         *string	     			    `json:"kitstatus,omitempty"` 
+    Location       *Geolocation  			     `json:"location,omitempty"`       // current asset location
 }
 
 var contractState = ContractState{MYVERSION}
