@@ -67,7 +67,7 @@ type ElementListAsset struct {
 type AssetState struct {
     AssetID        *string       			    `json:"assetID,omitempty"`        // all assets must have an ID, primary key of contract
 	Status		   *string	     			    `json:"kitstatus,omitempty"` 
-	Status		   *ElementListAsset	        `json:"elementList,omitempty"` 
+	Element		   *ElementListAsset	        `json:"elementList,omitempty"` 
     Location       *Geolocation  				`json:"location,omitempty"`       // current asset location
 }
 
