@@ -246,9 +246,23 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-                            "carrier": {
-                                "description": "transport entity currently in possession of asset",
-                                "type": "string"
+							"status":{
+								"description","kit status defines the state of kit wheather kit is open or close",
+								"type":"string"
+							},
+                            "elementList": {
+                                "description": "list of elements in the kit",
+								"properties":{
+									"name":{
+										"description":"element name inside kit",
+										"type":"string"
+									},
+									"status":{
+										"description":"element status",
+										"type":"string"
+									}
+								},
+                                "type": "object"
                             },
                             "location": {
                                 "description": "A geographical coordinate",
@@ -261,10 +275,6 @@ var schemas = `
                                     }
                                 },
                                 "type": "object"
-                            },
-                            "temperature": {
-                                "description": "Temperature of the asset in CELSIUS.",
-                                "type": "number"
                             }
                         },
                         "required": [
