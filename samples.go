@@ -8,8 +8,7 @@ var samples = `
         "location": {
             "latitude": 123.456,
             "longitude": 123.456
-        },
-        "temperature": 123.456
+        }
     },
     "initEvent": {
         "nickname": "SIMPLE",
@@ -21,7 +20,6 @@ var samples = `
         "location": {
             "latitude": 123.456,
             "longitude": 123.456
-        },
-        "temperature": 123.456
+        }
     }
 }`
