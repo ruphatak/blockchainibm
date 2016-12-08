@@ -15,11 +15,10 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-							"kitstatus":{
-								"description","kit status defines the state of kit wheather kit is open or close",
-								"type":"string"
-							},
-                           
+                            "carrier": {
+                                "description": "transport entity currently in possession of asset",
+                                "type": "string"
+                            },
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
@@ -31,6 +30,10 @@ var schemas = `
                                     }
                                 },
                                 "type": "object"
+                            },
+                            "temperature": {
+                                "description": "Temperature of the asset in CELSIUS.",
+                                "type": "number"
                             }
                         },
                         "required": [
@@ -151,27 +154,30 @@ var schemas = `
                 "result": {
                     "description": "A set of fields that constitute the complete asset state.",
                     "properties": {
-                         "assetID": {
-                                "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "string"
-                            },
-							"kitstatus":{
-								"description","kit status defines the state of kit wheather kit is open or close",
-								"type":"string"
-							},
-                           
-                            "location": {
-                                "description": "A geographical coordinate",
-                                "properties": {
-                                    "latitude": {
-                                        "type": "number"
-                                    },
-                                    "longitude": {
-                                        "type": "number"
-                                    }
+                        "assetID": {
+                            "description": "The ID of a managed asset. The resource focal point for a smart contract.",
+                            "type": "string"
+                        },
+                        "carrier": {
+                            "description": "transport entity currently in possession of asset",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "A geographical coordinate",
+                            "properties": {
+                                "latitude": {
+                                    "type": "number"
                                 },
-                                "type": "object"
-                            }
+                                "longitude": {
+                                    "type": "number"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "temperature": {
+                            "description": "Temperature of the asset in CELSIUS.",
+                            "type": "number"
+                        }
                     },
                     "type": "object"
                 }
@@ -240,11 +246,10 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-							"kitstatus":{
-								"description","kit status defines the state of kit wheather kit is open or close",
-								"type":"string"
-							},
-                            
+                            "carrier": {
+                                "description": "transport entity currently in possession of asset",
+                                "type": "string"
+                            },
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
@@ -256,6 +261,10 @@ var schemas = `
                                     }
                                 },
                                 "type": "object"
+                            },
+                            "temperature": {
+                                "description": "Temperature of the asset in CELSIUS.",
+                                "type": "number"
                             }
                         },
                         "required": [
@@ -294,25 +303,29 @@ var schemas = `
             "description": "A set of fields that constitute the writable fields in an asset's state. AssetID is mandatory along with at least one writable field. In this contract pattern, a partial state is used as an event.",
             "properties": {
                 "assetID": {
-                                "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "string"
-                            },
-							"kitstatus":{
-								"description","kit status defines the state of kit wheather kit is open or close",
-								"type":"string"
-							},
-                            "location": {
-                                "description": "A geographical coordinate",
-                                "properties": {
-                                    "latitude": {
-                                        "type": "number"
-                                    },
-                                    "longitude": {
-                                        "type": "number"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                    "description": "The ID of a managed asset. The resource focal point for a smart contract.",
+                    "type": "string"
+                },
+                "carrier": {
+                    "description": "transport entity currently in possession of asset",
+                    "type": "string"
+                },
+                "location": {
+                    "description": "A geographical coordinate",
+                    "properties": {
+                        "latitude": {
+                            "type": "number"
+                        },
+                        "longitude": {
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+                "temperature": {
+                    "description": "Temperature of the asset in CELSIUS.",
+                    "type": "number"
+                }
             },
             "required": [
                 "assetID"
@@ -340,26 +353,30 @@ var schemas = `
         "state": {
             "description": "A set of fields that constitute the complete asset state.",
             "properties": {
-                 "assetID": {
-                                "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "string"
-                            },
-							"kitstatus":{
-								"description","kit status defines the state of kit wheather kit is open or close",
-								"type":"string"
-							},
-                            "location": {
-                                "description": "A geographical coordinate",
-                                "properties": {
-                                    "latitude": {
-                                        "type": "number"
-                                    },
-                                    "longitude": {
-                                        "type": "number"
-                                    }
-                                },
-                                "type": "object"
-                            }
+                "assetID": {
+                    "description": "The ID of a managed asset. The resource focal point for a smart contract.",
+                    "type": "string"
+                },
+                "carrier": {
+                    "description": "transport entity currently in possession of asset",
+                    "type": "string"
+                },
+                "location": {
+                    "description": "A geographical coordinate",
+                    "properties": {
+                        "latitude": {
+                            "type": "number"
+                        },
+                        "longitude": {
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+                "temperature": {
+                    "description": "Temperature of the asset in CELSIUS.",
+                    "type": "number"
+                }
             },
             "type": "object"
         }
