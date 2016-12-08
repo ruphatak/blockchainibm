@@ -30,10 +30,6 @@ var schemas = `
                                     }
                                 },
                                 "type": "object"
-                            },
-                            "temperature": {
-                                "description": "Temperature of the asset in CELSIUS.",
-                                "type": "number"
                             }
                         },
                         "required": [
@@ -173,10 +169,6 @@ var schemas = `
                                 }
                             },
                             "type": "object"
-                        },
-                        "temperature": {
-                            "description": "Temperature of the asset in CELSIUS.",
-                            "type": "number"
                         }
                     },
                     "type": "object"
@@ -261,10 +253,6 @@ var schemas = `
                                     }
                                 },
                                 "type": "object"
-                            },
-                            "temperature": {
-                                "description": "Temperature of the asset in CELSIUS.",
-                                "type": "number"
                             }
                         },
                         "required": [
@@ -321,10 +309,6 @@ var schemas = `
                         }
                     },
                     "type": "object"
-                },
-                "temperature": {
-                    "description": "Temperature of the asset in CELSIUS.",
-                    "type": "number"
                 }
             },
             "required": [
@@ -372,10 +356,6 @@ var schemas = `
                         }
                     },
                     "type": "object"
-                },
-                "temperature": {
-                    "description": "Temperature of the asset in CELSIUS.",
-                    "type": "number"
                 }
             },
             "type": "object"
