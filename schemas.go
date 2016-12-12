@@ -1,5 +1,6 @@
 package main
-var schemas = `
+
+var samples = `
 {
   "API": {
     "createAsset": {
