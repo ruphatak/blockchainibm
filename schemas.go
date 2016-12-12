@@ -1,6 +1,4 @@
-package main
 
-var schemas = `
 {
     "API": {
         "createAsset": {
@@ -322,7 +320,6 @@ var schemas = `
                     },
                     "type": "object"
                 },
-				,
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
@@ -382,4 +379,4 @@ var schemas = `
             "type": "object"
         }
     }
-}`
+}
