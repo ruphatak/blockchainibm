@@ -34,19 +34,7 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
-                            },
-							 "ownername": {
-                                "description": "owner name",
-                                "type": "string"
-                            },
-							"ownerid": {
-                                "description": "owner id",
-                                "type": "string"
-                            },
-							"overalltransaction":{
-								 "description": "overalltransaction history",
-                                "type": "string"
-							}
+                            }
                         },
                         "required": [
                             "assetID"
@@ -189,19 +177,7 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
-                            },
-							 "ownername": {
-                                "description": "owner name",
-                                "type": "string"
-                            },
-							"ownerid": {
-                                "description": "owner id",
-                                "type": "string"
-                            },
-							"overalltransaction":{
-								 "description": "overalltransaction history",
-                                "type": "string"
-							}
+                            }
                     },
                     "type": "object"
                 }
@@ -289,19 +265,7 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
-                            },
-							 "ownername": {
-                                "description": "owner name",
-                                "type": "string"
-                            },
-							"ownerid": {
-                                "description": "owner id",
-                                "type": "string"
-                            },
-							"overalltransaction":{
-								 "description": "overalltransaction history",
-                                "type": "string"
-							}
+                            }
                         },
                         "required": [
                             "assetID"
@@ -362,19 +326,7 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
-                            },
-							 "ownername": {
-                                "description": "owner name",
-                                "type": "string"
-                            },
-							"ownerid": {
-                                "description": "owner id",
-                                "type": "string"
-                            },
-							"overalltransaction":{
-								 "description": "overalltransaction history",
-                                "type": "string"
-							}
+                            }
             },
             "required": [
                 "assetID"
@@ -425,19 +377,7 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
-                            },
-							 "ownername": {
-                                "description": "owner name",
-                                "type": "string"
-                            },
-							"ownerid": {
-                                "description": "owner id",
-                                "type": "string"
-                            },
-							"overalltransaction":{
-								 "description": "overalltransaction history",
-                                "type": "string"
-							}
+                            }
             },
             "type": "object"
         }
