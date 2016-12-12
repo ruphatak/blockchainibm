@@ -9,7 +9,10 @@ var samples = `
             "latitude": 123.456,
             "longitude": 123.456
         },
-		 "role": "owner role"
+		 "role": "owner role",
+		 "ownername":" Asset owner name",
+		 "owerid":"ownerid",
+		 "overallstatus":"all over blocks status"
     },
     "initEvent": {
         "nickname": "SIMPLE",
@@ -22,7 +25,10 @@ var samples = `
             "latitude": 123.456,
             "longitude": 123.456
         },
-		 "role": "owner role"
+		 "role": "owner role",
+		  "ownername":" Asset owner name",
+		 "owerid":"ownerid",
+		 "overallstatus":"all over blocks status"
 	
     }
 }`
