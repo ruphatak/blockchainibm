@@ -1,6 +1,6 @@
 
 {
-    "API": {
+    "API": { 
         "createAsset": {
             "description": "Create an asset. One argument, a JSON encoded event. AssetID is required with zero or more writable properties. Establishes an initial asset state.",
             "properties": {
