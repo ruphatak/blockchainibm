@@ -10,21 +10,9 @@ var samples = `
             "longitude": 123.456
         },
 		 "role": {
-                                "description": "person role",
+                    "description": "person role",
                                 "type": "string"
-                            },
-							 "ownername": {
-                                "description": "owner name",
-                                "type": "string"
-                            },
-							"ownerid": {
-                                "description": "owner id",
-                                "type": "string"
-                            },
-							"overalltransaction":{
-								 "description": "overalltransaction history",
-                                "type": "string"
-							}
+                            }
     },
     "initEvent": {
         "nickname": "SIMPLE",
@@ -40,18 +28,6 @@ var samples = `
 		 "role": {
                                 "description": "person role",
                                 "type": "string"
-                            },
-							 "ownername": {
-                                "description": "owner name",
-                                "type": "string"
-                            },
-							"ownerid": {
-                                "description": "owner id",
-                                "type": "string"
-                            },
-							"overalltransaction":{
-								 "description": "overalltransaction history",
-                                "type": "string"
-							}
+                            }
     }
 }`
