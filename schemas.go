@@ -30,6 +30,10 @@ var schemas = `
                                     }
                                 },
                                 "type": "object"
+                            },
+							 "role": {
+                                "description": "person role",
+                                "type": "string"
                             }
                         },
                         "required": [
@@ -169,7 +173,11 @@ var schemas = `
                                 }
                             },
                             "type": "object"
-                        }
+                        },
+							 "role": {
+                                "description": "person role",
+                                "type": "string"
+                            }
                     },
                     "type": "object"
                 }
@@ -253,6 +261,10 @@ var schemas = `
                                     }
                                 },
                                 "type": "object"
+                            },
+							 "role": {
+                                "description": "person role",
+                                "type": "string"
                             }
                         },
                         "required": [
@@ -309,7 +321,11 @@ var schemas = `
                         }
                     },
                     "type": "object"
-                }
+                },
+							 "role": {
+                                "description": "person role",
+                                "type": "string"
+                            }
             },
             "required": [
                 "assetID"
@@ -356,7 +372,11 @@ var schemas = `
                         }
                     },
                     "type": "object"
-                }
+                },
+							 "role": {
+                                "description": "person role",
+                                "type": "string"
+                            }
             },
             "type": "object"
         }
