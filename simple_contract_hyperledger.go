@@ -63,6 +63,9 @@ type AssetState struct {
     Location        		*Geolocation  `json:"location,omitempty"`       // current asset location
     Status          		*string       `json:"kitstatus,omitempty"`        // the name of the carrier
 	Role            		*string       `json:"role,omitempty"`
+	Ownername            	*string       `json:"ownername,omitempty"`
+	Ownerid            		*string       `json:"ownerid,omitempty"`
+	Overallstatus           *string       `json:"overallstatus,omitempty"`
 	
 }
 var contractState = ContractState{MYVERSION}
