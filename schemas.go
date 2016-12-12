@@ -34,6 +34,18 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
+                            },
+							 "ownername": {
+                                "description": "ownername",
+                                "type": "string"
+                            },
+							 "ownerid": {
+                                "description": "ownerid",
+                                "type": "string"
+                            },
+							 "overallstatus": {
+                                "description": "overallstatus",
+                                "type": "string"
                             }
                         },
                         "required": [
@@ -177,6 +189,18 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
+                            },
+							 "ownername": {
+                                "description": "ownername",
+                                "type": "string"
+                            },
+							 "ownerid": {
+                                "description": "ownerid",
+                                "type": "string"
+                            },
+							 "overallstatus": {
+                                "description": "overallstatus",
+                                "type": "string"
                             }
                     },
                     "type": "object"
@@ -265,6 +289,18 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
+                            },
+							 "ownername": {
+                                "description": "ownername",
+                                "type": "string"
+                            },
+							 "ownerid": {
+                                "description": "ownerid",
+                                "type": "string"
+                            },
+							 "overallstatus": {
+                                "description": "overallstatus",
+                                "type": "string"
                             }
                         },
                         "required": [
@@ -325,6 +361,18 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
+                            },
+							 "ownername": {
+                                "description": "ownername",
+                                "type": "string"
+                            },
+							 "ownerid": {
+                                "description": "ownerid",
+                                "type": "string"
+                            },
+							 "overallstatus": {
+                                "description": "overallstatus",
+                                "type": "string"
                             }
             },
             "required": [
@@ -375,6 +423,18 @@ var schemas = `
                 },
 							 "role": {
                                 "description": "person role",
+                                "type": "string"
+                            },
+							 "ownername": {
+                                "description": "ownername",
+                                "type": "string"
+                            },
+							 "ownerid": {
+                                "description": "ownerid",
+                                "type": "string"
+                            },
+							 "overallstatus": {
+                                "description": "overallstatus",
                                 "type": "string"
                             }
             },
