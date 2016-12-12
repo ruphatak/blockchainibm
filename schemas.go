@@ -1,5 +1,4 @@
 package main
-
 var schemas = `
 {
   "API": {
