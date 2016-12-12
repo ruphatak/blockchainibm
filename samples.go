@@ -8,11 +8,7 @@ var samples = `
         "location": {
             "latitude": 123.456,
             "longitude": 123.456
-        },
-		 "role": {
-                    "description": "person role",
-                                "type": "string"
-                            }
+        }
     },
     "initEvent": {
         "nickname": "SIMPLE",
@@ -24,10 +20,7 @@ var samples = `
         "location": {
             "latitude": 123.456,
             "longitude": 123.456
-        },
-		 "role": {
-                                "description": "person role",
-                                "type": "string"
-                            }
+        }
+	
     }
 }`
