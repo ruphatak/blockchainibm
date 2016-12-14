@@ -55,8 +55,8 @@ type ContractState struct {
 }
 
 type Geolocation struct {
-    Latitude    *float64 `json:"latitude,omitempty"`
-    Longitude   *float64 `json:"longitude,omitempty"`
+    Latitude    *string `json:"latitude,omitempty"`
+    Longitude   *string `json:"longitude,omitempty"`
 }
 type AssetState struct {
     AssetID         		*string       `json:"assetID,omitempty"`        // all assets must have an ID, primary key of contract
