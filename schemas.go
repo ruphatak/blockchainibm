@@ -23,10 +23,10 @@ var schemas = `
                                 "description": "A geographical coordinate",
                                 "properties": {
                                     "latitude": {
-                                        "type": "number"
+                                        "type": "string"
                                     },
                                     "longitude": {
-                                        "type": "number"
+                                        "type": "string"
                                     }
                                 },
                                 "type": "object"
@@ -178,10 +178,10 @@ var schemas = `
                             "description": "A geographical coordinate",
                             "properties": {
                                 "latitude": {
-                                    "type": "number"
+                                    "type": "string"
                                 },
                                 "longitude": {
-                                    "type": "number"
+                                    "type": "string"
                                 }
                             },
                             "type": "object"
@@ -278,10 +278,10 @@ var schemas = `
                                 "description": "A geographical coordinate",
                                 "properties": {
                                     "latitude": {
-                                        "type": "number"
+                                        "type": "string"
                                     },
                                     "longitude": {
-                                        "type": "number"
+                                        "type": "string"
                                     }
                                 },
                                 "type": "object"
@@ -350,10 +350,10 @@ var schemas = `
                     "description": "A geographical coordinate",
                     "properties": {
                         "latitude": {
-                            "type": "number"
+                            "type": "string"
                         },
                         "longitude": {
-                            "type": "number"
+                            "type": "string"
                         }
                     },
                     "type": "object"
@@ -413,10 +413,10 @@ var schemas = `
                     "description": "A geographical coordinate",
                     "properties": {
                         "latitude": {
-                            "type": "number"
+                            "type": "string"
                         },
                         "longitude": {
-                            "type": "number"
+                            "type": "string"
                         }
                     },
                     "type": "object"
