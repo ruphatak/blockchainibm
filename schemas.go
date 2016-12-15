@@ -35,6 +35,10 @@ var schemas = `
                                 "description": "person role",
                                 "type": "string"
                             },
+							 "lastowner": {
+                                "description": "lastowner name",
+                                "type": "string"
+                            },
 							 "ownername": {
                                 "description": "ownername",
                                 "type": "string"
@@ -189,6 +193,9 @@ var schemas = `
 							 "role": {
                                 "description": "person role",
                                 "type": "string"
+                            },"lastowner": {
+                                "description": "lastowner name",
+                                "type": "string"
                             },
 							 "ownername": {
                                 "description": "ownername",
@@ -290,6 +297,10 @@ var schemas = `
                                 "description": "person role",
                                 "type": "string"
                             },
+							"lastowner": {
+                                "description": "lastowner name",
+                                "type": "string"
+                            },
 							 "ownername": {
                                 "description": "ownername",
                                 "type": "string"
@@ -362,6 +373,10 @@ var schemas = `
                                 "description": "person role",
                                 "type": "string"
                             },
+							"lastowner": {
+                                "description": "lastowner name",
+                                "type": "string"
+                            },
 							 "ownername": {
                                 "description": "ownername",
                                 "type": "string"
@@ -423,6 +438,10 @@ var schemas = `
                 },
 							 "role": {
                                 "description": "person role",
+                                "type": "string"
+                            },
+							"lastowner": {
+                                "description": "lastowner name",
                                 "type": "string"
                             },
 							 "ownername": {
