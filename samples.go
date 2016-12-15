@@ -12,7 +12,8 @@ var samples = `
 		 "role": "owner role",
 		 "ownername":" Asset owner name",
 		 "owerid":"ownerid",
-		 "overallstatus":"all over blocks status"
+		 "overallstatus":"all over blocks status",
+		 "lastowner":"last owner of asset"
     },
     "initEvent": {
         "nickname": "SIMPLE",
@@ -28,7 +29,7 @@ var samples = `
 		 "role": "owner role",
 		  "ownername":" Asset owner name",
 		 "owerid":"ownerid",
-		 "overallstatus":"all over blocks status"
-	
+		 "overallstatus":"all over blocks status",
+	     "lastowner":"last owner of asset"
     }
 }`
