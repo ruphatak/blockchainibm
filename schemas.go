@@ -174,7 +174,7 @@ var schemas = `
                             "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                             "type": "string"
                         },
-                        "kitstatus": {
+                        "assetstatus": {
                             "description": "transport entity currently in possession of asset",
                             "type": "string"
                         },
@@ -277,7 +277,7 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-                            "kitstatus": {
+                            "assetstatus": {
                                 "description": "transport entity currently in possession of asset",
                                 "type": "string"
                             },
@@ -353,7 +353,7 @@ var schemas = `
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 },
-                "kitstatus": {
+                "assetstatus": {
                     "description": "transport entity currently in possession of asset",
                     "type": "string"
                 },
@@ -420,7 +420,7 @@ var schemas = `
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 },
-                "kitstatus": {
+                "assetstatus": {
                     "description": "transport entity currently in possession of asset",
                     "type": "string"
                 },
