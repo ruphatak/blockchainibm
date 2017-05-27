@@ -39,6 +39,10 @@ var schemas = `
                                 "description": "lastowner name",
                                 "type": "string"
                             },
+							 "health": {
+                                "description": "overall health",
+                                "type": "string"
+                            },
 							 "ownername": {
                                 "description": "ownername",
                                 "type": "string"
@@ -197,6 +201,10 @@ var schemas = `
                                 "description": "lastowner name",
                                 "type": "string"
                             },
+							 "health": {
+                                "description": "overall health",
+                                "type": "string"
+                            },
 							 "ownername": {
                                 "description": "ownername",
                                 "type": "string"
@@ -301,6 +309,10 @@ var schemas = `
                                 "description": "lastowner name",
                                 "type": "string"
                             },
+							 "health": {
+                                "description": "overall health",
+                                "type": "string"
+                            },
 							 "ownername": {
                                 "description": "ownername",
                                 "type": "string"
@@ -377,6 +389,10 @@ var schemas = `
                                 "description": "lastowner name",
                                 "type": "string"
                             },
+							 "health": {
+                                "description": "overall health",
+                                "type": "string"
+                            },
 							 "ownername": {
                                 "description": "ownername",
                                 "type": "string"
@@ -442,6 +458,10 @@ var schemas = `
                             },
 							"lastowner": {
                                 "description": "lastowner name",
+                                "type": "string"
+                            },
+							 "health": {
+                                "description": "overall health",
                                 "type": "string"
                             },
 							 "ownername": {
