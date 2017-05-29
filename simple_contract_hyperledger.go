@@ -68,7 +68,11 @@ type AssetState struct {
     AssetID     *string      `json:"assetID,omitempty"`     // all assets must have an ID, primary key of contract
     Location    *Geolocation `json:"location,omitempty"`    // current asset location
     Temperature *float64     `json:"temperature,omitempty"` // asset temp
-    Carrier     *string      `json:"carrier,omitempty"`     // the name of the carrier
+	Humidity *float64     `json:"humidity,omitempty"`
+	Luminosity *float64     `json:"luminosity,omitempty"`
+	Pressure *float64     `json:"pressure,omitempty"`
+	Vibration *float64     `json:"vibration,omitempty"`
+    Status     *string      `json:"status,omitempty"`     // the name of the carrier
 }
 
 var contractState = ContractState{MYVERSION}
