@@ -72,7 +72,16 @@ type AssetState struct {
 	Luminosity *float64     `json:"luminosity,omitempty"`
 	Pressure *float64     `json:"pressure,omitempty"`
 	Vibration *float64     `json:"vibration,omitempty"`
-    Status     *string      `json:"status,omitempty"`     // the name of the carrier
+    Status     *string      `json:"status,omitempty"`     
+	Customername     *string      `json:"customername,omitempty"`  
+	Destination     *string      `json:"destination,omitempty"` 
+	Content     *string      `json:"content,omitempty"`  
+	Country     *string      `json:"country,omitempty"`  
+	Orderid *float64     `json:"orderid,omitempty"`	
+	Timestamp     *string      `json:"timestamp,omitempty"`  
+	Time     *float64      `json:"time,omitempty"` 
+	Orderdate	*string      `json:"orderdate,omitempty"`
+	Health *float64     `json:"health,omitempty"`
 }
 
 var contractState = ContractState{MYVERSION}
