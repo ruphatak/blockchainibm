@@ -50,7 +50,44 @@ var schemas = `
 							"pressure": {
                                 "description": "pressure",
                                 "type": "number"
+                            },
+							"customername": {
+                                "description": "customername",
+                                "type": "string"
+                            },
+							"destination": {
+                                "description": "destination",
+                                "type": "string"
+                            },
+							"content": {
+                                "description": "content",
+                                "type": "string"
+                            },
+							"country": {
+                                "description": "country",
+                                "type": "string"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
+                            },
+							"time": {
+                                "description": "time",
+                                "type": "number"
+                            },
+							"health": {
+                                "description": "health",
+                                "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "string"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "string"
                             }
+							
 							
                         },
                         "required": [
@@ -210,7 +247,44 @@ var schemas = `
 							"pressure": {
                                 "description": "pressure",
                                 "type": "number"
+                            },
+							"customername": {
+                                "description": "customername",
+                                "type": "string"
+                            },
+							"destination": {
+                                "description": "destination",
+                                "type": "string"
+                            },
+							"content": {
+                                "description": "content",
+                                "type": "string"
+                            },
+							"country": {
+                                "description": "country",
+                                "type": "string"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
+                            },
+							"time": {
+                                "description": "time",
+                                "type": "number"
+                            },
+							"health": {
+                                "description": "health",
+                                "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "string"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "string"
                             }
+							
                     },
                     "type": "object"
                 }
@@ -314,7 +388,44 @@ var schemas = `
 							"pressure": {
                                 "description": "pressure",
                                 "type": "number"
+                            },
+							"customername": {
+                                "description": "customername",
+                                "type": "string"
+                            },
+							"destination": {
+                                "description": "destination",
+                                "type": "string"
+                            },
+							"content": {
+                                "description": "content",
+                                "type": "string"
+                            },
+							"country": {
+                                "description": "country",
+                                "type": "string"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
+                            },
+							"time": {
+                                "description": "time",
+                                "type": "number"
+                            },
+							"health": {
+                                "description": "health",
+                                "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "string"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "string"
                             }
+							
                         },
                         "required": [
                             "assetID"
@@ -390,7 +501,44 @@ var schemas = `
 							"pressure": {
                                 "description": "pressure",
                                 "type": "number"
+                            },
+							"customername": {
+                                "description": "customername",
+                                "type": "string"
+                            },
+							"destination": {
+                                "description": "destination",
+                                "type": "string"
+                            },
+							"content": {
+                                "description": "content",
+                                "type": "string"
+                            },
+							"country": {
+                                "description": "country",
+                                "type": "string"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
+                            },
+							"time": {
+                                "description": "time",
+                                "type": "number"
+                            },
+							"health": {
+                                "description": "health",
+                                "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "string"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "string"
                             }
+							
             },
             "required": [
                 "assetID"
@@ -457,7 +605,44 @@ var schemas = `
 							"pressure": {
                                 "description": "pressure",
                                 "type": "number"
+                            },
+							"customername": {
+                                "description": "customername",
+                                "type": "string"
+                            },
+							"destination": {
+                                "description": "destination",
+                                "type": "string"
+                            },
+							"content": {
+                                "description": "content",
+                                "type": "string"
+                            },
+							"country": {
+                                "description": "country",
+                                "type": "string"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
+                            },
+							"time": {
+                                "description": "time",
+                                "type": "number"
+                            },
+							"health": {
+                                "description": "health",
+                                "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "string"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "string"
                             }
+							
             },
             "type": "object"
         }
