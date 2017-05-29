@@ -41,7 +41,7 @@ var schemas = `
                             },
 							 "health": {
                                 "description": "overall health",
-                                "type": "string"
+                                "type": "float64"
                             },
 							 "ownername": {
                                 "description": "ownername",
@@ -203,7 +203,7 @@ var schemas = `
                             },
 							 "health": {
                                 "description": "overall health",
-                                "type": "string"
+                                "type": "float64"
                             },
 							 "ownername": {
                                 "description": "ownername",
@@ -311,7 +311,7 @@ var schemas = `
                             },
 							 "health": {
                                 "description": "overall health",
-                                "type": "string"
+                                "type": "float64"
                             },
 							 "ownername": {
                                 "description": "ownername",
@@ -391,7 +391,7 @@ var schemas = `
                             },
 							 "health": {
                                 "description": "overall health",
-                                "type": "string"
+                                "type": "float64"
                             },
 							 "ownername": {
                                 "description": "ownername",
@@ -462,7 +462,7 @@ var schemas = `
                             },
 							 "health": {
                                 "description": "overall health",
-                                "type": "string"
+                                "type": "float64"
                             },
 							 "ownername": {
                                 "description": "ownername",
