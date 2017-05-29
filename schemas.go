@@ -35,8 +35,16 @@ var schemas = `
                                 "description": "person role",
                                 "type": "string"
                             },
+							"temp": {
+                                "description": "jhjhj",
+                                "type": "string"
+                            },
 							 "lastowner": {
                                 "description": "lastowner name",
+                                "type": "string"
+                            },
+							"temp": {
+                                "description": "jhjhj",
                                 "type": "string"
                             },
 							 "health": {
@@ -201,6 +209,10 @@ var schemas = `
                                 "description": "lastowner name",
                                 "type": "string"
                             },
+							"temp": {
+                                "description": "jhjhj",
+                                "type": "string"
+                            },
 							 "health": {
                                 "description": "overall health",
                                 "type": "float64"
@@ -309,6 +321,10 @@ var schemas = `
                                 "description": "lastowner name",
                                 "type": "string"
                             },
+							"temp": {
+                                "description": "jhjhj",
+                                "type": "string"
+                            },
 							 "health": {
                                 "description": "overall health",
                                 "type": "float64"
@@ -389,6 +405,10 @@ var schemas = `
                                 "description": "lastowner name",
                                 "type": "string"
                             },
+							"temp": {
+                                "description": "jhjhj",
+                                "type": "string"
+                            },
 							 "health": {
                                 "description": "overall health",
                                 "type": "float64"
@@ -458,6 +478,10 @@ var schemas = `
                             },
 							"lastowner": {
                                 "description": "lastowner name",
+                                "type": "string"
+                            },
+							"temp": {
+                                "description": "jhjhj",
                                 "type": "string"
                             },
 							 "health": {
