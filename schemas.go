@@ -78,6 +78,14 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "time"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "time"
                             }
 							
 							
@@ -267,6 +275,14 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "time"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "time"
                             }
 							
                     },
@@ -400,6 +416,14 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "time"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "time"
                             }
 							
                         },
@@ -505,6 +529,14 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "time"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "time"
                             }
 							
             },
@@ -601,6 +633,14 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
+                            },
+							"timestamp": {
+                                "description": "timestamp",
+                                "type": "time"
+                            },
+							"orderdate": {
+                                "description": "orderdate",
+                                "type": "time"
                             }
 							
             },
