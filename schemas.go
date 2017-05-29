@@ -15,51 +15,60 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-                            "assetstatus": {
-                                "description": "transport entity currently in possession of asset",
+                      "location": {
+                    "description": "A geographical coordinate",
+                    "properties": {
+                        "latitude": {
+                            "type": "number"
+                        },
+                        "longitude": {
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+							 "destination": {
+                                "description": "destination",
                                 "type": "string"
                             },
-                            "location": {
-                                "description": "A geographical coordinate",
-                                "properties": {
-                                    "latitude": {
-                                        "type": "string"
-                                    },
-                                    "longitude": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            },
-							 "role": {
-                                "description": "person role",
-                                "type": "string"
-                            },
+							
 							"temp": {
-                                "description": "jhjhj",
-                                "type": "string"
+                                "description": "temperature",
+                                "type": "number"
                             },
-							 "lastowner": {
-                                "description": "lastowner name",
-                                "type": "string"
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
                             },
-							"temp": {
-                                "description": "jhjhj",
-                                "type": "string"
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							 "health": {
                                 "description": "overall health",
                                 "type": "number"
                             },
-							 "ownername": {
-                                "description": "ownername",
+							 "customername": {
+                                "description": "customername",
                                 "type": "string"
                             },
-							 "ownerid": {
-                                "description": "ownerid",
+							 "content": {
+                                "description": "content",
                                 "type": "string"
                             },
-							 "overallstatus": {
+							 "status": {
                                 "description": "overallstatus",
                                 "type": "string"
                             }
@@ -186,46 +195,60 @@ var schemas = `
                             "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                             "type": "string"
                         },
-                        "assetstatus": {
-                            "description": "transport entity currently in possession of asset",
-                            "type": "string"
-                        },
                         "location": {
-                            "description": "A geographical coordinate",
-                            "properties": {
-                                "latitude": {
-                                    "type": "string"
-                                },
-                                "longitude": {
-                                    "type": "string"
-                                }
-                            },
-                            "type": "object"
+                    "description": "A geographical coordinate",
+                    "properties": {
+                        "latitude": {
+                            "type": "number"
                         },
-							 "role": {
-                                "description": "person role",
-                                "type": "string"
-                            },"lastowner": {
-                                "description": "lastowner name",
+                        "longitude": {
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+							 "destination": {
+                                "description": "destination",
                                 "type": "string"
                             },
+							
 							"temp": {
-                                "description": "jhjhj",
-                                "type": "string"
+                                "description": "temperature",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							 "health": {
                                 "description": "overall health",
                                 "type": "number"
                             },
-							 "ownername": {
-                                "description": "ownername",
+							 "customername": {
+                                "description": "customername",
                                 "type": "string"
                             },
-							 "ownerid": {
-                                "description": "ownerid",
+							 "content": {
+                                "description": "content",
                                 "type": "string"
                             },
-							 "overallstatus": {
+							 "status": {
                                 "description": "overallstatus",
                                 "type": "string"
                             }
@@ -297,47 +320,60 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-                            "assetstatus": {
-                                "description": "transport entity currently in possession of asset",
+                      "location": {
+                    "description": "A geographical coordinate",
+                    "properties": {
+                        "latitude": {
+                            "type": "number"
+                        },
+                        "longitude": {
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
+                },
+							 "destination": {
+                                "description": "destination",
                                 "type": "string"
                             },
-                            "location": {
-                                "description": "A geographical coordinate",
-                                "properties": {
-                                    "latitude": {
-                                        "type": "string"
-                                    },
-                                    "longitude": {
-                                        "type": "string"
-                                    }
-                                },
-                                "type": "object"
-                            },
-							 "role": {
-                                "description": "person role",
-                                "type": "string"
-                            },
-							"lastowner": {
-                                "description": "lastowner name",
-                                "type": "string"
-                            },
+							
 							"temp": {
-                                "description": "jhjhj",
-                                "type": "string"
+                                "description": "temperature",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							 "health": {
                                 "description": "overall health",
                                 "type": "number"
                             },
-							 "ownername": {
-                                "description": "ownername",
+							 "customername": {
+                                "description": "customername",
                                 "type": "string"
                             },
-							 "ownerid": {
-                                "description": "ownerid",
+							 "content": {
+                                "description": "content",
                                 "type": "string"
                             },
-							 "overallstatus": {
+							 "status": {
                                 "description": "overallstatus",
                                 "type": "string"
                             }
@@ -381,47 +417,60 @@ var schemas = `
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 },
-                "assetstatus": {
-                    "description": "transport entity currently in possession of asset",
-                    "type": "string"
-                },
-                "location": {
+               "location": {
                     "description": "A geographical coordinate",
                     "properties": {
                         "latitude": {
-                            "type": "string"
+                            "type": "number"
                         },
                         "longitude": {
-                            "type": "string"
+                            "type": "number"
                         }
                     },
                     "type": "object"
                 },
-							 "role": {
-                                "description": "person role",
+							 "destination": {
+                                "description": "destination",
                                 "type": "string"
                             },
-							"lastowner": {
-                                "description": "lastowner name",
-                                "type": "string"
-                            },
+							
 							"temp": {
-                                "description": "jhjhj",
-                                "type": "string"
+                                "description": "temperature",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							 "health": {
                                 "description": "overall health",
                                 "type": "number"
                             },
-							 "ownername": {
-                                "description": "ownername",
+							 "customername": {
+                                "description": "customername",
                                 "type": "string"
                             },
-							 "ownerid": {
-                                "description": "ownerid",
+							 "content": {
+                                "description": "content",
                                 "type": "string"
                             },
-							 "overallstatus": {
+							 "status": {
                                 "description": "overallstatus",
                                 "type": "string"
                             }
@@ -456,52 +505,70 @@ var schemas = `
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 },
-                "assetstatus": {
-                    "description": "transport entity currently in possession of asset",
-                    "type": "string"
-                },
+                
                 "location": {
                     "description": "A geographical coordinate",
                     "properties": {
                         "latitude": {
-                            "type": "string"
+                            "type": "number"
                         },
                         "longitude": {
-                            "type": "string"
+                            "type": "number"
                         }
                     },
                     "type": "object"
                 },
-							 "role": {
-                                "description": "person role",
+							 "destination": {
+                                "description": "destination",
                                 "type": "string"
                             },
-							"lastowner": {
-                                "description": "lastowner name",
-                                "type": "string"
-                            },
+							
 							"temp": {
-                                "description": "jhjhj",
-                                "type": "string"
+                                "description": "temperature",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							 "health": {
                                 "description": "overall health",
                                 "type": "number"
                             },
-							 "ownername": {
-                                "description": "ownername",
+							 "customername": {
+                                "description": "customername",
                                 "type": "string"
                             },
-							 "ownerid": {
-                                "description": "ownerid",
+							 "content": {
+                                "description": "content",
                                 "type": "string"
                             },
-							 "overallstatus": {
+							 "status": {
                                 "description": "overallstatus",
                                 "type": "string"
                             }
             },
-            "type": "object"
+           "required": [
+                            "assetID"
+                        ],
+                        "type": "object"
+                    },
         }
     }
 }`
