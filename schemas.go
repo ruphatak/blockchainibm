@@ -81,11 +81,11 @@ var schemas = `
                             },
 							"timestamp": {
                                 "description": "timestamp",
-                                "type": "time"
+                                "type": "date"
                             },
 							"orderdate": {
                                 "description": "orderdate",
-                                "type": "time"
+                                "type": "date"
                             }
 							
 							
@@ -278,11 +278,11 @@ var schemas = `
                             },
 							"timestamp": {
                                 "description": "timestamp",
-                                "type": "time"
+                                "type": "date"
                             },
 							"orderdate": {
                                 "description": "orderdate",
-                                "type": "time"
+                                "type": "date"
                             }
 							
                     },
@@ -419,11 +419,11 @@ var schemas = `
                             },
 							"timestamp": {
                                 "description": "timestamp",
-                                "type": "time"
+                                "type": "date"
                             },
 							"orderdate": {
                                 "description": "orderdate",
-                                "type": "time"
+                                "type": "date"
                             }
 							
                         },
@@ -532,11 +532,11 @@ var schemas = `
                             },
 							"timestamp": {
                                 "description": "timestamp",
-                                "type": "time"
+                                "type": "date"
                             },
 							"orderdate": {
                                 "description": "orderdate",
-                                "type": "time"
+                                "type": "date"
                             }
 							
             },
@@ -636,11 +636,11 @@ var schemas = `
                             },
 							"timestamp": {
                                 "description": "timestamp",
-                                "type": "time"
+                                "type": "date"
                             },
 							"orderdate": {
                                 "description": "orderdate",
-                                "type": "time"
+                                "type": "date"
                             }
 							
             },
