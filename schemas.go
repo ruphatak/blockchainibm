@@ -15,10 +15,10 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-                            "carrier": {
-                                "description": "transport entity currently in possession of asset",
-                                "type": "string"
-                            },
+                            "status": {
+                    "description": "status",
+                    "type": "string"
+                },
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
@@ -34,7 +34,24 @@ var schemas = `
                             "temperature": {
                                 "description": "Temperature of the asset in CELSIUS.",
                                 "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
                             }
+							
                         },
                         "required": [
                             "assetID"
@@ -158,10 +175,10 @@ var schemas = `
                             "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                             "type": "string"
                         },
-                        "carrier": {
-                            "description": "transport entity currently in possession of asset",
-                            "type": "string"
-                        },
+                        "status": {
+                    "description": "status",
+                    "type": "string"
+                },
                         "location": {
                             "description": "A geographical coordinate",
                             "properties": {
@@ -175,9 +192,25 @@ var schemas = `
                             "type": "object"
                         },
                         "temperature": {
-                            "description": "Temperature of the asset in CELSIUS.",
-                            "type": "number"
-                        }
+                                "description": "Temperature of the asset in CELSIUS.",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            }
                     },
                     "type": "object"
                 }
@@ -246,10 +279,10 @@ var schemas = `
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
-                            "carrier": {
-                                "description": "transport entity currently in possession of asset",
-                                "type": "string"
-                            },
+                            "status": {
+                    "description": "status",
+                    "type": "string"
+                },
                             "location": {
                                 "description": "A geographical coordinate",
                                 "properties": {
@@ -264,6 +297,22 @@ var schemas = `
                             },
                             "temperature": {
                                 "description": "Temperature of the asset in CELSIUS.",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
                                 "type": "number"
                             }
                         },
@@ -306,8 +355,8 @@ var schemas = `
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 },
-                "carrier": {
-                    "description": "transport entity currently in possession of asset",
+                "status": {
+                    "description": "status",
                     "type": "string"
                 },
                 "location": {
@@ -323,9 +372,25 @@ var schemas = `
                     "type": "object"
                 },
                 "temperature": {
-                    "description": "Temperature of the asset in CELSIUS.",
-                    "type": "number"
-                }
+                                "description": "Temperature of the asset in CELSIUS.",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            }
             },
             "required": [
                 "assetID"
@@ -357,8 +422,8 @@ var schemas = `
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 },
-                "carrier": {
-                    "description": "transport entity currently in possession of asset",
+                "status": {
+                    "description": "status",
                     "type": "string"
                 },
                 "location": {
@@ -374,9 +439,25 @@ var schemas = `
                     "type": "object"
                 },
                 "temperature": {
-                    "description": "Temperature of the asset in CELSIUS.",
-                    "type": "number"
-                }
+                                "description": "Temperature of the asset in CELSIUS.",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            }
             },
             "type": "object"
         }
