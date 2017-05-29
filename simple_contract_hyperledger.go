@@ -78,9 +78,9 @@ type AssetState struct {
 	Content     *string      `json:"content,omitempty"`  
 	Country     *string      `json:"country,omitempty"`  
 	Orderid *float64     `json:"orderid,omitempty"`	
-	Timestamp     *string      `json:"timestamp,omitempty"`  
+	//Timestamp     *time.Time      `json:"timestamp,omitempty"`  
 	Time     *float64      `json:"time,omitempty"` 
-	Orderdate	*string      `json:"orderdate,omitempty"`
+	//Orderdate	*time.Time      `json:"orderdate,omitempty"`
 	Health *float64     `json:"health,omitempty"`
 }
 
