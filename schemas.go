@@ -78,14 +78,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "string"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "string"
                             }
 							
 							
@@ -275,14 +267,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "string"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "string"
                             }
 							
                     },
@@ -416,14 +400,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "string"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "string"
                             }
 							
                         },
@@ -529,14 +505,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "string"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "string"
                             }
 							
             },
@@ -633,14 +601,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "string"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "string"
                             }
 							
             },
