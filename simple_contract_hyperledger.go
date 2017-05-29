@@ -55,20 +55,23 @@ type ContractState struct {
 }
 
 type Geolocation struct {
-    Latitude    *string `json:"latitude,omitempty"`
-    Longitude   *string `json:"longitude,omitempty"`
+    Latitude    *float64 `json:"latitude,omitempty"`
+    Longitude   *float64 `json:"longitude,omitempty"`
 }
 type AssetState struct {
     AssetID         		*string       `json:"assetID,omitempty"`        // all assets must have an ID, primary key of contract
     Location        		*Geolocation  `json:"location,omitempty"`       // current asset location
-    Status          		*string       `json:"assetstatus,omitempty"`        // the name of the carrier
-	Role            		*string       `json:"role,omitempty"`
-	Lastowner				*string 	  `json:"lastowner,omitempty"`
+    Status          		*string       `json:"status,omitempty"`        // the name of the carrier
+	Customername            		*string       `json:"customername,omitempty"`
+	Content				*string 	  `json:"content,omitempty"`
 	Health			*float64 	  `json:"health,omitempty"`
-	Ownername            	*string       `json:"ownername,omitempty"`
-	Ownerid            		*string       `json:"ownerid,omitempty"`
-	Overallstatus           *string       `json:"overallstatus,omitempty"`
-	Temp	*string	`json:"temp,omitempty"`
+	Destination            	*string       `json:"destination,omitempty"`
+	Temperature	*float64	`json:"temp,omitempty"`
+	Pressure	*float64	`json:"pressure,omitempty"`
+	Humidity	*float64	`json:"humidity,omitempty"`
+	Luminosity	*float64	`json:"luminosity,omitempty"`
+	Vibration	*float64	`json:"vibration,omitempty"`
+	Orderid	*float64	`json:"orderid,omitempty"`
 	
 }
 var contractState = ContractState{MYVERSION}
