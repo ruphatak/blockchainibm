@@ -13,7 +13,7 @@ var schemas = `
                         "properties": {
                             "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "string"
+                                "type": "number"
                             },
                             "status": {
                     "description": "status",
@@ -67,9 +67,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"containerid": {
+                                "description": "containerid",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -120,7 +120,7 @@ var schemas = `
                         "properties": {
                             "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "string"
+                                "type": "number"
                             }
                         },
                         "type": "object"
@@ -188,7 +188,7 @@ var schemas = `
                         "properties": {
                             "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "string"
+                                "type": "number"
                             }
                         },
                         "type": "object"
@@ -210,7 +210,7 @@ var schemas = `
                     "properties": {
                         "assetID": {
                             "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                            "type": "string"
+                            "type": "number"
                         },
                         "status": {
                     "description": "status",
@@ -264,9 +264,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"containerid": {
+                                "description": "containerid",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -351,7 +351,7 @@ var schemas = `
                         "properties": {
                             "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "string"
+                                "type": "number"
                             },
                             "status": {
                     "description": "status",
@@ -405,9 +405,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"containerid": {
+                                "description": "containerid",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -454,7 +454,7 @@ var schemas = `
             "properties": {
                 "assetID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                    "type": "string"
+                    "type": "number"
                 }
             },
             "type": "object"
@@ -464,7 +464,7 @@ var schemas = `
             "properties": {
                 "assetID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                    "type": "string"
+                    "type": "number"
                 },
                 "status": {
                     "description": "status",
@@ -518,9 +518,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"containerid": {
+                                "description": "containerid",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -568,7 +568,7 @@ var schemas = `
             "properties": {
                 "assetID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                    "type": "string"
+                    "type": "number"
                 },
                 "status": {
                     "description": "status",
@@ -622,9 +622,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"containerid": {
+                                "description": "containerid",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
