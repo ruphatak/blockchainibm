@@ -66,7 +66,7 @@ type Geolocation struct {
 
 // AssetState stores current state for any assset
 type AssetState struct {
-    AssetID     *string      `json:"assetID,omitempty"`     // all assets must have an ID, primary key of contract
+    AssetID     *float64      `json:"assetID,omitempty"`     // all assets must have an ID, primary key of contract
     Location    *Geolocation `json:"location,omitempty"`    // current asset location
     Temperature *float64     `json:"temperature,omitempty"` // asset temp
 	Humidity *float64     `json:"humidity,omitempty"`
@@ -78,7 +78,7 @@ type AssetState struct {
 	Destination     *string      `json:"destination,omitempty"` 
 	Content     *string      `json:"content,omitempty"`  
 	Country     *string      `json:"country,omitempty"`  
-	Orderid *float64     `json:"orderid,omitempty"`	
+	Containerid *string     `json:"orderid,omitempty"`	
 	Timestamp     *time.Time      `json:"timestamp,omitempty"`  
 	Time     *float64      `json:"time,omitempty"` 
 	Orderdate	*time.Time      `json:"orderdate,omitempty"`
