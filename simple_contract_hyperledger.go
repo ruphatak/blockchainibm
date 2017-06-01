@@ -199,7 +199,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     }
     assetID = *stateIn.AssetID
     // Delete the key / asset from the ledger
-    err = stub.DelState(assetID)
+    err = stub.DelState(strconv.FormatFloat(assetID, 'f', 6, 64))
     if err != nil {
         err = errors.New("DELSTATE failed! : " + fmt.Sprint(err))
         return nil, err
@@ -223,7 +223,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     }
     assetID = *stateIn.AssetID
     // Get the state from the ledger
-    assetBytes, err := stub.GetState(assetID)
+    assetBytes, err := stub.GetState(strconv.FormatFloat(assetID, 'f', 6, 64))
     if err != nil || len(assetBytes) == 0 {
         err = errors.New("Unable to get asset state from ledger")
         return nil, err
@@ -317,7 +317,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     assetID = *stateIn.AssetID
     // Partial updates introduced here
     // Check if asset record existed in stub
-    assetBytes, err := stub.GetState(assetID)
+    assetBytes, err := stub.GetState(strconv.FormatFloat(assetID, 'f', 6, 64))
     if err != nil || len(assetBytes) == 0 {
         // This implies that this is a 'create' scenario
         stateStub = stateIn // The record that goes into the stub is the one that cme in
@@ -343,7 +343,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     // Get existing state from the stub
 
     // Write the new state to the ledger
-    err = stub.PutState(assetID, stateJSON)
+    err = stub.PutState(strconv.FormatFloat(assetID, 'f', 6, 64), stateJSON)
     if err != nil {
         err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
         return nil, err
