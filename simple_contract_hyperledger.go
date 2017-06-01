@@ -35,7 +35,6 @@ import (
     "reflect"
     "strings"
     "time"
-    "strconv"
 
     "github.com/hyperledger/fabric/core/chaincode/shim"
 )
@@ -287,7 +286,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     // If no value comes in from the json input string, the values are set to nil
 
     if stateIn.AssetID != nil {
-        assetID = float64.TrimSpace(*stateIn.AssetID)
+         strconv.FormatFloat(assetID, 'f', 6, 64)= string.TrimSpace(*stateIn.AssetID)
         if assetID == "" {
             err = errors.New("AssetID not passed")
             return state, err
