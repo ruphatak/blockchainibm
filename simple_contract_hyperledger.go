@@ -34,8 +34,8 @@ import (
     "fmt"
     "reflect"
     "strings"
-    "time"
-    "strconv"
+	"time"
+
     "github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
@@ -66,7 +66,7 @@ type Geolocation struct {
 
 // AssetState stores current state for any assset
 type AssetState struct {
-    AssetID     *float64      `json:"assetID,omitempty"`     // all assets must have an ID, primary key of contract
+    AssetID     *string      `json:"assetID,omitempty"`     // all assets must have an ID, primary key of contract
     Location    *Geolocation `json:"location,omitempty"`    // current asset location
     Temperature *float64     `json:"temperature,omitempty"` // asset temp
 	Humidity *float64     `json:"humidity,omitempty"`
@@ -197,7 +197,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     if err != nil {
         return nil, err
     }
-    assetID = strconv.FormatFloat(*stateIn.AssetID, 'f', 6, 64)
+    assetID = *stateIn.AssetID
     // Delete the key / asset from the ledger
     err = stub.DelState(assetID)
     if err != nil {
@@ -221,7 +221,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
-    assetID = strconv.FormatFloat(*stateIn.AssetID, 'f', 6, 64)
+    assetID = *stateIn.AssetID
     // Get the state from the ledger
     assetBytes, err := stub.GetState(assetID)
     if err != nil || len(assetBytes) == 0 {
@@ -296,7 +296,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
         return state, err
     }
 
-    strconv.FormatFloat(stateIn.AssetID, 'f', 6, 64) = &assetID
+    stateIn.AssetID = &assetID
     return stateIn, nil
 }
 
@@ -314,7 +314,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     if err != nil {
         return nil, err
     }
-    assetID = strconv.FormatFloat(*stateIn.AssetID, 'f', 6, 64)
+    assetID = *stateIn.AssetID
     // Partial updates introduced here
     // Check if asset record existed in stub
     assetBytes, err := stub.GetState(assetID)
