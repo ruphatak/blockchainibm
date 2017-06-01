@@ -13,7 +13,7 @@ var schemas = `
                         "properties": {
                             "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "number"
+                                "type": "string"
                             },
                             "status": {
                     "description": "status",
@@ -67,9 +67,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"containerid": {
-                                "description": "containerid",
-                                "type": "string"
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							"time": {
                                 "description": "time",
@@ -78,14 +78,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "date"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "date"
                             }
 							
 							
@@ -120,7 +112,7 @@ var schemas = `
                         "properties": {
                             "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "number"
+                                "type": "string"
                             }
                         },
                         "type": "object"
@@ -188,7 +180,7 @@ var schemas = `
                         "properties": {
                             "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "number"
+                                "type": "string"
                             }
                         },
                         "type": "object"
@@ -210,7 +202,7 @@ var schemas = `
                     "properties": {
                         "assetID": {
                             "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                            "type": "number"
+                            "type": "string"
                         },
                         "status": {
                     "description": "status",
@@ -264,9 +256,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"containerid": {
-                                "description": "containerid",
-                                "type": "string"
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							"time": {
                                 "description": "time",
@@ -275,14 +267,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "date"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "date"
                             }
 							
                     },
@@ -351,7 +335,7 @@ var schemas = `
                         "properties": {
                             "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                                "type": "number"
+                                "type": "string"
                             },
                             "status": {
                     "description": "status",
@@ -405,9 +389,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"containerid": {
-                                "description": "containerid",
-                                "type": "string"
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							"time": {
                                 "description": "time",
@@ -416,14 +400,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "date"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "date"
                             }
 							
                         },
@@ -454,7 +430,7 @@ var schemas = `
             "properties": {
                 "assetID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                    "type": "number"
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -464,7 +440,7 @@ var schemas = `
             "properties": {
                 "assetID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                    "type": "number"
+                    "type": "string"
                 },
                 "status": {
                     "description": "status",
@@ -518,9 +494,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"containerid": {
-                                "description": "containerid",
-                                "type": "string"
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							"time": {
                                 "description": "time",
@@ -529,14 +505,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "date"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "date"
                             }
 							
             },
@@ -568,7 +536,7 @@ var schemas = `
             "properties": {
                 "assetID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
-                    "type": "number"
+                    "type": "string"
                 },
                 "status": {
                     "description": "status",
@@ -622,9 +590,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"containerid": {
-                                "description": "containerid",
-                                "type": "string"
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
                             },
 							"time": {
                                 "description": "time",
@@ -633,14 +601,6 @@ var schemas = `
 							"health": {
                                 "description": "health",
                                 "type": "number"
-                            },
-							"timestamp": {
-                                "description": "timestamp",
-                                "type": "date"
-                            },
-							"orderdate": {
-                                "description": "orderdate",
-                                "type": "date"
                             }
 							
             },
