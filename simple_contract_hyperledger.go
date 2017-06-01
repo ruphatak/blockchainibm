@@ -188,7 +188,7 @@ func (t *SimpleChaincode) updateAsset(stub shim.ChaincodeStubInterface, args []s
 //******************** deleteAsset ********************/
 
 func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var assetID string // asset ID
+    var assetID float64 // asset ID
     var err error
     var stateIn AssetState
 
@@ -212,7 +212,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 //********************readAsset********************/
 
 func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var assetID string // asset ID
+    var assetID float64 // asset ID
     var err error
     var state AssetState
 
@@ -265,7 +265,7 @@ func (t *SimpleChaincode) readAssetSchemas(stub shim.ChaincodeStubInterface, arg
 // validate input data : common method called by the CRUD functions
 // ************************************
 func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err error) {
-    var assetID string                  // asset ID
+    var assetID float64                  // asset ID
     var state = AssetState{} // The calling function is expecting an object of type AssetState
 
     if len(args) != 1 {
@@ -286,7 +286,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     // If no value comes in from the json input string, the values are set to nil
 
     if stateIn.AssetID != nil {
-        assetID = strings.TrimSpace(*stateIn.AssetID)
+        assetID = float64.TrimSpace(*stateIn.AssetID)
         if assetID == "" {
             err = errors.New("AssetID not passed")
             return state, err
@@ -303,7 +303,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
 //******************** createOrUpdateAsset ********************/
 
 func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var assetID string // asset ID                    // used when looking in map
+    var assetID float64 // asset ID                    // used when looking in map
     var err error
     var stateIn AssetState
     var stateStub AssetState
