@@ -239,7 +239,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 		return nil, err
      }
      
-    contHistKey := conJSON
+    contHistKey := "SC101609"+"_HISTORY"
     conthistory, err := stub.GetState(contHistKey)
     if err != nil {
         return nil, err
