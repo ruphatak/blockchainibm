@@ -210,9 +210,9 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 
 /******************* Query Methods ***************/
 /*********************************  resetContainerHistory ****************************/
- func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface, args []string) (stateIn AssetState, err error) {
+ func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
     var assetID string                  // asset ID
-    var state = AssetState{} // The calling function is expecting an object of type AssetState
+    var stateIn = AssetState{} // The calling function is expecting an object of type AssetState
     var err error
     assetID = ""
     if len(args) !=1 {
