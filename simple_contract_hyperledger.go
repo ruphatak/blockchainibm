@@ -34,6 +34,7 @@ import (
     "fmt"
     "reflect"
     "strings"
+	"time"
 
     "github.com/hyperledger/fabric/core/chaincode/shim"
 )
@@ -150,8 +151,6 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
     } else if function == "readAssetSamples" {
         // returns selected sample objects
         return t.readAssetSamples(stub, args)
-    } else if function =="readContainerHistory" {
-            return t.readContainerHistory(stub, args)
     } else if function == "readAssetSchemas" {
         // returns selected sample objects
         return t.readAssetSchemas(stub, args)
@@ -209,43 +208,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 }
 
 /******************* Query Methods ***************/
-/*********************************  resetContainerHistory ****************************/
- func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-   // var assetID string                  // asset ID
-    var stateIn = AssetState{} // The calling function is expecting an object of type AssetState
-    var err error
-    
-    if len(args) !=1 {
-        err = errors.New("Incorrect number of arguments. Expecting a single JSON string with mandatory Container Number")
-		//fmt.Println(err)
-		return nil, err
-	}
-	jsonData:=args[0]
-    conJSON := []byte(jsonData)
-   // fmt.Println("Input Container data arg: ", jsonData)
-    
-    // Unmarshal imput data into ContainerLogistics struct   
-   err = json.Unmarshal(conJSON, &stateIn)
-    if err != nil {
-        //err = errors.New("Unable to unmarshal input JSON data")
-		//fmt.Println(err)
-		return nil, err
-    }
-   // fmt.Println(" contIn after unmarshaling [", contIn, "]")        
-     if stateIn.AssetID==nil{
-       //  fmt.Println(" Container number is blank")
-        err = errors.New("Container number is mandatory")
-       // fmt.Println(err)
-		return nil, err
-     }
-     
-    contHistKey := "SC101609"+"_HISTORY"
-    conthistory, err := stub.GetState(contHistKey)
-    if err != nil {
-        return nil, err
-    }
-     return conthistory, nil
- }
+
 //********************readAsset********************/
 
 func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
