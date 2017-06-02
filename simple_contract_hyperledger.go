@@ -209,43 +209,23 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 }
 
 /******************* Query Methods ***************/
-/*********************************  resetContainerHistory ****************************/
- func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-   // var assetID string                  // asset ID
-    var stateIn = AssetState{} // The calling function is expecting an object of type AssetState
-    var err error
-    
-    if len(args) !=1 {
-        err = errors.New("Incorrect number of arguments. Expecting a single JSON string with mandatory Container Number")
-		//fmt.Println(err)
-		return nil, err
-	}
-	jsonData:=args[0]
-    conJSON := []byte(jsonData)
-   // fmt.Println("Input Container data arg: ", jsonData)
-    
-    // Unmarshal imput data into ContainerLogistics struct   
-   err = json.Unmarshal(conJSON, &stateIn)
-    if err != nil {
-        //err = errors.New("Unable to unmarshal input JSON data")
-		//fmt.Println(err)
-		return nil, err
+/*********************************  readContainerHistory ****************************/
+func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+    fmt.Println("Entering GetLoanApplication")
+ 
+    if len(args) < 1 {
+        fmt.Println("Invalid number of arguments")
+        return nil, errors.New("Missing container ID")
     }
-   // fmt.Println(" contIn after unmarshaling [", contIn, "]")        
-     if stateIn.AssetID==nil{
-       //  fmt.Println(" Container number is blank")
-        err = errors.New("Container number is mandatory")
-       // fmt.Println(err)
-		return nil, err
-     }
-     
-    contHistKey := "SC101609"
-    conthistory, err := stub.GetState(contHistKey)
+ 
+    var loanApplicationId = args[0]
+    bytes, err := stub.GetState(loanApplicationId)
     if err != nil {
+        fmt.Println("Could not fetch loan application with id "+loanApplicationId+" from ledger", err)
         return nil, err
     }
-     return conthistory, nil
- }
+    return bytes, nil
+}
 //********************readAsset********************/
 
 func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
