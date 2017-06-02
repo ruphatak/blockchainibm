@@ -232,7 +232,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 		return nil, err
     }
    // fmt.Println(" contIn after unmarshaling [", contIn, "]")        
-     if stateIn.AssetID==""{
+     if stateIn.AssetID==nil{
        //  fmt.Println(" Container number is blank")
         err = errors.New("Container number is mandatory")
        // fmt.Println(err)
