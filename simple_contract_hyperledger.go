@@ -34,6 +34,7 @@ import (
     "fmt"
     "reflect"
     "strings"
+	"time"
 
     "github.com/hyperledger/fabric/core/chaincode/shim"
 )
@@ -245,13 +246,6 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     }
      return conthistory, nil
  }
-
-func (t *SimpleChaincode) readAssetSchemas(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-	return []byte(schemas), nil
-}
-
-
-
 //********************readAsset********************/
 
 func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
