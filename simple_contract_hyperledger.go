@@ -224,7 +224,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
    // fmt.Println("Input Container data arg: ", jsonData)
     
     // Unmarshal imput data into ContainerLogistics struct   
-    err = json.Unmarshal(conJSON)
+   err = json.Unmarshal(conJSON, &stateIn)
     if err != nil {
         //err = errors.New("Unable to unmarshal input JSON data")
 		//fmt.Println(err)
@@ -238,8 +238,8 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 		return nil, err
      }
      
-    contHistKey := stateIn.AssetID
-    conthistory, err := stub.GetState(contHistKey   )
+    contHistKey := stateIn.AssetID+"_HISTORY"
+    conthistory, err := stub.GetState(contHistKey)
     if err != nil {
         return nil, err
     }
