@@ -150,9 +150,6 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
     } else if function == "readAssetSamples" {
         // returns selected sample objects
         return t.readAssetSamples(stub, args)
-    } else if function == "readStateHistory" {
-        // returns selected sample objects
-        return t.readStateHistory(stub, args)
     }  else if function == "readAssetSchemas" {
         // returns selected sample objects
         return t.readAssetSchemas(stub, args)
@@ -274,7 +271,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
         err = errors.New("Incorrect number of arguments. Expecting a JSON strings with mandatory orderID")
         return state, err
     }
-    jsonData := args
+    jsonData := args[0]
     orderID = ""
     stateJSON := []byte(jsonData)
     err = json.Unmarshal(stateJSON, &stateIn)
@@ -288,7 +285,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     // If no value comes in from the json input string, the values are set to nil
 
     if stateIn.OrderID != nil {
-		*stateIn.OrderID=strconv.FormatFloat(*stateIn.OrderID, 'f', 6, 64)
+		stateIn.OrderID=strconv.FormatFloat(stateIn.OrderID, 'f', 6, 64)
         orderID = strings.TrimSpace(*stateIn.OrderID)
         if orderID == "" {
             err = errors.New("OrderID not passed")
