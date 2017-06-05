@@ -210,7 +210,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 ///********************readAsset********************/
 
 func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var orderID float64 // asset ID
+    var country string // asset ID
     var err error
     var state AssetState
 
@@ -219,9 +219,9 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
-    orderID = *stateIn.Orderid
+    country = *stateIn.Country
     // Get the state from the ledger
-    assetBytes, err := stub.GetState(strconv.FormatFloat(orderID, 'f', 6, 64))
+    assetBytes, err := stub.GetState(country)
     if err != nil || len(assetBytes) == 0 {
         err = errors.New("Unable to get asset state from ledger")
         return nil, err
