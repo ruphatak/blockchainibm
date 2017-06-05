@@ -221,8 +221,8 @@ func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface,
    
 	jsonData := args[0]
     stateJSON := []byte(jsonData)
-	err = json.Unmarshal(stateJSON, &stateIn)s
-    bytes, err := stub.GetState(loanApplicationId)
+	err = json.Unmarshal(stateJSON, &stateIn)
+    bytes, err := stub.GetState(loanApplicationId+ ".StateHistory")
     if err != nil {
         fmt.Println("Could not fetch loan application with id "+loanApplicationId+" from ledger", err)
         return nil, err
@@ -243,7 +243,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     }
     assetID = *stateIn.AssetID
     // Get the state from the ledger
-    assetBytes, err := stub.GetState(assetID+ ".StateHistory")
+    assetBytes, err := stub.GetState(assetID)
     if err != nil || len(assetBytes) == 0 {
         err = errors.New("Unable to get asset state from ledger")
         return nil, err
