@@ -215,7 +215,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []flo
     var state AssetState
 
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
-    stateIn, err := t.validateInput(args)
+    stateIn, err := t.validateInput(strconv.FormatFloat(args, 'f', 6, 64))
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
