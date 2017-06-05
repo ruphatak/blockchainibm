@@ -214,8 +214,8 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 
 /******************* Query Methods ***************/
 // Get the state history for an asset.
-func (t *SimpleChaincode)readStateHistory(stub *shim.ChaincodeStub, assetID string) (AssetStateHistory, error) {
-
+func (t *SimpleChaincode)readStateHistory(stub shim.ChaincodeStubInterface, args []string) (AssetStateHistory, error) {
+	var assetID=args[0]
 	var ledgerKey = assetID + STATEHISTORYKEY
 	var assetStateHistory AssetStateHistory
 	var historyBytes []byte
