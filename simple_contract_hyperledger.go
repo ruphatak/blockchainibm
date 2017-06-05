@@ -196,7 +196,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     if err != nil {
         return nil, err
     }
-    assetID = *stateIn.AssetIDs
+    assetID = *stateIn.AssetID
     // Delete the key / asset from the ledger
     err = stub.DelState(assetID)
     if err != nil {
