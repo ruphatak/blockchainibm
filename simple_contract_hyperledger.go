@@ -153,8 +153,7 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
     } else if function == "readAssetSamples" {
         // returns selected sample objects
         return t.readAssetSamples(stub, args)
-    }  
-	else if function == "readStateHistory" {
+    } else if function == "readStateHistory" {
         // returns selected sample objects
         return t.readStateHistory(stub, args)
     }  else if function == "readAssetSchemas" {
