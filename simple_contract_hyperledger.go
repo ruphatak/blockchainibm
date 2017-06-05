@@ -215,7 +215,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     var state AssetState
 
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
-    stateIn, err := t.validateInput(args)
+    stateIn, err := t.validateInputCountry(args)
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
@@ -295,6 +295,44 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     }
 
     stateIn.AssetID = &assetID
+    return stateIn, nil
+}
+// ************************************
+// validate input data Country : common method called by the CRUD functions
+// ************************************
+func (t *SimpleChaincode) validateInputCountry(args []string) (stateIn AssetState, err error) {
+    var country string                  // asset ID
+    var state = AssetState{} // The calling function is expecting an object of type AssetState
+
+    if len(args) != 1 {
+        err = errors.New("Incorrect number of arguments. Expecting a JSON strings with mandatory assetID")
+        return state, err
+    }
+    jsonData := args[0]
+    country = ""
+    stateJSON := []byte(jsonData)
+    err = json.Unmarshal(stateJSON, &stateIn)
+    if err != nil {
+        err = errors.New("Unable to unmarshal input JSON data")
+        return state, err
+        // state is an empty instance of asset state
+    }
+    // was assetID present?
+    // The nil check is required because the asset id is a pointer.
+    // If no value comes in from the json input string, the values are set to nil
+
+    if stateIn.Country != nil {
+        country = strings.TrimSpace(*stateIn.Country)
+        if country == "" {
+            err = errors.New("Country not passed")
+            return state, err
+        }
+    } else {
+        err = errors.New("Country is mandatory in the input JSON data")
+        return state, err
+    }
+
+    stateIn.Country = &country
     return stateIn, nil
 }
 
