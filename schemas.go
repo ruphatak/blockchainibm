@@ -274,6 +274,123 @@ var schemas = `
                 }
             },
             "type": "object"
+        }, "readAssetHistory": {
+            "description": "Requests a specified number of history states for an assets. Returns an array of states sorted with the most recent first. AssetID is required and count is optional. A missing count, a count of zero, or too large a count returns all existing history states.",
+            "properties": {
+                "args": {
+                    "description": "args are JSON encoded strings",
+                    "items": {
+                        "description": "Requested assetID with item count.",
+                        "properties": {
+                            "assetID": {
+                                "description": "The ID of a managed asset. The resource focal point for a smart contract.",
+                                "type": "string"
+                            },
+                            "count": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "assetID"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "function": {
+                    "description": "readAssetHistory function",
+                    "enum": [
+                        "readAssetHistory"
+                    ],
+                    "type": "string"
+                },
+                "result": {
+                    "description": "an array of states for one asset sorted by timestamp with the most recent entry first",
+                    "items": {
+                        "description": "A set of fields that constitute the complete asset state.",
+                        "properties": {
+                            "alerts": {
+                                "description": "Active means that the alert is in force in this state. Raised means that the alert became active as the result of the event that generated this state. Cleared means that the alert became inactive as the result of the event that generated this state.",
+                                "properties": {
+                                   "assetID": {
+                                "description": "The ID of a managed asset. The resource focal point for a smart contract.",
+                                "type": "string"
+                            },
+                            "status": {
+                    "description": "status",
+                    "type": "string"
+                },
+                            "location": {
+                                "description": "A geographical coordinate",
+                                "properties": {
+                                    "latitude": {
+                                        "type": "number"
+                                    },
+                                    "longitude": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "temperature": {
+                                "description": "Temperature of the asset in CELSIUS.",
+                                "type": "number"
+                            },
+							"humidity": {
+                                "description": "humidity",
+                                "type": "number"
+                            },
+							"luminosity": {
+                                "description": "luminosity",
+                                "type": "number"
+                            },
+							"vibration": {
+                                "description": "vibration",
+                                "type": "number"
+                            },
+							"pressure": {
+                                "description": "pressure",
+                                "type": "number"
+                            },
+							"customername": {
+                                "description": "customername",
+                                "type": "string"
+                            },
+							"destination": {
+                                "description": "destination",
+                                "type": "string"
+                            },
+							"content": {
+                                "description": "content",
+                                "type": "string"
+                            },
+							"country": {
+                                "description": "country",
+                                "type": "string"
+                            },
+							"orderid": {
+                                "description": "orderid",
+                                "type": "number"
+                            },
+							"time": {
+                                "description": "time",
+                                "type": "number"
+                            },
+							"health": {
+                                "description": "health",
+                                "type": "number"
+                            }
+							
+                        },
+                        "type": "object"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "type": "object"
         },
         "readAssetSamples": {
             "description": "Returns a string generated from the schema containing sample Objects as specified in generate.json in the scripts folder.",
