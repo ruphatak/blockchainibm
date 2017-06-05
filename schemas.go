@@ -11,7 +11,7 @@ var schemas = `
                     "items": {
                         "description": "A set of fields that constitute the writable fields in an asset's state. AssetID is mandatory along with at least one writable field. In this contract pattern, a partial state is used as an event.",
                         "properties": {
-                            "assetID": {
+                            "orderID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
@@ -67,9 +67,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"container": {
+                                "description": "container",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -83,7 +83,7 @@ var schemas = `
 							
                         },
                         "required": [
-                            "assetID"
+                            "orderID"
                         ],
                         "type": "object"
                     },
@@ -103,14 +103,14 @@ var schemas = `
             "type": "object"
         },
         "deleteAsset": {
-            "description": "Delete an asset. Argument is a JSON encoded string containing only an assetID.",
+            "description": "Delete an asset. Argument is a JSON encoded string containing only an orderID.",
             "properties": {
                 "args": {
                     "description": "args are JSON encoded strings",
                     "items": {
-                        "description": "An object containing only an assetID for use as an argument to read or delete.",
+                        "description": "An object containing only an orderID for use as an argument to read or delete.",
                         "properties": {
-                            "assetID": {
+                            "orderID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             }
@@ -176,9 +176,9 @@ var schemas = `
                 "args": {
                     "description": "args are JSON encoded strings",
                     "items": {
-                        "description": "An object containing only an assetID for use as an argument to read or delete.",
+                        "description": "An object containing only an orderID for use as an argument to read or delete.",
                         "properties": {
-                            "assetID": {
+                            "orderID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             }
@@ -200,7 +200,7 @@ var schemas = `
                 "result": {
                     "description": "A set of fields that constitute the complete asset state.",
                     "properties": {
-                        "assetID": {
+                        "orderID": {
                             "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                             "type": "string"
                         },
@@ -256,9 +256,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"container": {
+                                "description": "container",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -280,9 +280,9 @@ var schemas = `
                 "args": {
                     "description": "args are JSON encoded strings",
                     "items": {
-                        "description": "Requested assetID with item count.",
+                        "description": "Requested orderID with item count.",
                         "properties": {
-                            "assetID": {
+                            "orderID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
@@ -291,7 +291,7 @@ var schemas = `
                             }
                         },
                         "required": [
-                            "assetID"
+                            "orderID"
                         ],
                         "type": "object"
                     },
@@ -311,7 +311,7 @@ var schemas = `
                     "items": {
                         "description": "A set of fields that constitute the complete asset state.",
                         "properties": {
-                                "assetID": {
+                                "orderID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
@@ -367,9 +367,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"container": {
+                                "description": "container",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -447,7 +447,7 @@ var schemas = `
                     "items": {
                         "description": "A set of fields that constitute the writable fields in an asset's state. AssetID is mandatory along with at least one writable field. In this contract pattern, a partial state is used as an event.",
                         "properties": {
-                            "assetID": {
+                            "orderID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
@@ -503,9 +503,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"container": {
+                                "description": "container",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -518,7 +518,7 @@ var schemas = `
 							
                         },
                         "required": [
-                            "assetID"
+                            "orderID"
                         ],
                         "type": "object"
                     },
@@ -539,10 +539,10 @@ var schemas = `
         }
     },
     "objectModelSchemas": {
-        "assetIDKey": {
-            "description": "An object containing only an assetID for use as an argument to read or delete.",
+        "orderIDKey": {
+            "description": "An object containing only an orderID for use as an argument to read or delete.",
             "properties": {
-                "assetID": {
+                "orderID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 }
@@ -552,7 +552,7 @@ var schemas = `
         "event": {
             "description": "A set of fields that constitute the writable fields in an asset's state. AssetID is mandatory along with at least one writable field. In this contract pattern, a partial state is used as an event.",
             "properties": {
-                "assetID": {
+                "orderID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 },
@@ -608,9 +608,9 @@ var schemas = `
                                 "description": "country",
                                 "type": "string"
                             },
-							"orderid": {
-                                "description": "orderid",
-                                "type": "number"
+							"container": {
+                                "description": "container",
+                                "type": "string"
                             },
 							"time": {
                                 "description": "time",
@@ -623,7 +623,7 @@ var schemas = `
 							
             },
             "required": [
-                "assetID"
+                "orderID"
             ],
             "type": "object"
         },
@@ -648,7 +648,7 @@ var schemas = `
         "state": {
             "description": "A set of fields that constitute the complete asset state.",
             "properties": {
-                "assetID": {
+                "orderID": {
                     "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                     "type": "string"
                 },
