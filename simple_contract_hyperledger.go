@@ -198,7 +198,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     if err != nil {
         return nil, err
     }
-    assetID = *stateIn.AssetID
+    assetID = *stateIn.Orderid
     // Delete the key / asset from the ledger
     err = stub.DelState(assetID)
     if err != nil {
@@ -209,27 +209,10 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 }
 
 /******************* Query Methods ***************/
-/*********************************  readContainerHistory ****************************/
-func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    fmt.Println("Entering GetLoanApplication")
- 
-    if len(args) < 1 {
-        fmt.Println("Invalid number of arguments")
-        return nil, errors.New("Missing container ID")
-    }
- 
-    var loanApplicationId = args[0]
-    bytes, err := stub.GetState(loanApplicationId)
-    if err != nil {
-        fmt.Println("Could not fetch loan application with id "+loanApplicationId+" from ledger", err)
-        return nil, err
-    }
-    return bytes, nil
-}
-//********************readAsset********************/
+///********************readAsset********************/
 
-func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var assetID string // asset ID
+func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []float64) ([]byte, error) {
+    var orderID float64 // asset ID
     var err error
     var state AssetState
 
@@ -238,9 +221,9 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
-    assetID = *stateIn.AssetID
+    orderID = *stateIn.Orderid
     // Get the state from the ledger
-    assetBytes, err := stub.GetState(assetID)
+    assetBytes, err := stub.GetState(orderID)
     if err != nil || len(assetBytes) == 0 {
         err = errors.New("Unable to get asset state from ledger")
         return nil, err
