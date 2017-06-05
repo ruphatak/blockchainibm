@@ -65,7 +65,7 @@ type Geolocation struct {
 
 // AssetState stores current state for any assset
 type AssetState struct {
-    OrderID     *string      `json:"orderID,omitempty"`     // all assets must have an ID, primary key of contract
+    OrderID      string      `json:"orderID,omitempty"`     // all assets must have an ID, primary key of contract
     Location    *Geolocation `json:"location,omitempty"`    // current asset location
     Temperature *float64     `json:"temperature,omitempty"` // asset temp
 	Humidity *float64     `json:"humidity,omitempty"`
@@ -299,7 +299,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
         return state, err
     }
 
-    stateIn.OrderID = &orderID
+    stateIn.OrderID = orderID
     return stateIn, nil
 }
 
@@ -317,7 +317,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     if err != nil {
         return nil, err
     }
-    orderID = *stateIn.OrderID
+    orderID = stateIn.OrderID
     // Partial updates introduced here
     // Check if asset record existed in stub
     assetBytes, err := stub.GetState(orderID)
