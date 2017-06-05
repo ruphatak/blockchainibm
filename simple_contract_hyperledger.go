@@ -209,13 +209,13 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 /******************* Query Methods ***************/
 ///********************readAsset********************/
 
-func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []float64) ([]byte, error) {
+func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
     var orderID float64 // asset ID
     var err error
     var state AssetState
 
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
-    stateIn, err := t.validateInput(strconv.FormatFloat(args, 'f', 6, 64))
+    stateIn, err := t.validateInput(args)
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
