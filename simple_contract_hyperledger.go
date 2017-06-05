@@ -34,7 +34,7 @@ import (
     "fmt"
     "reflect"
     "strings"
-
+	"strconv"
     "github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
@@ -150,9 +150,7 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
     } else if function == "readAssetSamples" {
         // returns selected sample objects
         return t.readAssetSamples(stub, args)
-    } else if function =="readContainerHistory" {
-            return t.readContainerHistory(stub, args)
-    } else if function == "readAssetSchemas" {
+    }  else if function == "readAssetSchemas" {
         // returns selected sample objects
         return t.readAssetSchemas(stub, args)
     }
@@ -198,7 +196,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     if err != nil {
         return nil, err
     }
-    assetID = *stateIn.Orderid
+    assetID = *stateIn.AssetIDs
     // Delete the key / asset from the ledger
     err = stub.DelState(assetID)
     if err != nil {
@@ -223,7 +221,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []flo
     }
     orderID = *stateIn.Orderid
     // Get the state from the ledger
-    assetBytes, err := stub.GetState(orderID)
+    assetBytes, err := stub.GetState(strconv.FormatFloat(orderID, 'f', 6, 64))
     if err != nil || len(assetBytes) == 0 {
         err = errors.New("Unable to get asset state from ledger")
         return nil, err
