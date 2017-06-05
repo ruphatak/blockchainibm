@@ -212,13 +212,16 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 /*********************************  readContainerHistory ****************************/
 func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
     fmt.Println("Entering GetLoanApplication")
- 
+	
     if len(args) < 1 {
         fmt.Println("Invalid number of arguments")
         return nil, errors.New("Missing container ID")
     }
  
-    var loanApplicationId = args[0]
+   
+	jsonData := args[0]
+    stateJSON := []byte(jsonData)
+	err = json.Unmarshal(stateJSON, &stateIn)s
     bytes, err := stub.GetState(loanApplicationId)
     if err != nil {
         fmt.Println("Could not fetch loan application with id "+loanApplicationId+" from ledger", err)
@@ -240,7 +243,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     }
     assetID = *stateIn.AssetID
     // Get the state from the ledger
-    assetBytes, err := stub.GetState(assetID)
+    assetBytes, err := stub.GetState(assetID+ ".StateHistory")
     if err != nil || len(assetBytes) == 0 {
         err = errors.New("Unable to get asset state from ledger")
         return nil, err
