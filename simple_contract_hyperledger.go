@@ -212,17 +212,14 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 /*********************************  readContainerHistory ****************************/
 func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
     fmt.Println("Entering GetLoanApplication")
-	
+ 
     if len(args) < 1 {
         fmt.Println("Invalid number of arguments")
         return nil, errors.New("Missing container ID")
     }
  
-   
-	loanApplicationId := args[0]
-    /*stateJSON := []byte(jsonData)
-	err = json.Unmarshal(stateJSON, &stateIn)*/
-    bytes, err := stub.GetState(loanApplicationId+ ".StateHistory")
+    var loanApplicationId = args[0]
+    bytes, err := stub.GetState(loanApplicationId)
     if err != nil {
         fmt.Println("Could not fetch loan application with id "+loanApplicationId+" from ledger", err)
         return nil, err
