@@ -33,8 +33,7 @@ import (
     "errors"
     "fmt"
     "reflect"
-    "strings"
-	"strconv"
+    "strconv"
     "github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
@@ -285,7 +284,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     // The nil check is required because the asset id is a pointer.
     // If no value comes in from the json input string, the values are set to nil
 
-    if stateIn.OrderID != nil {
+    if stateIn.OrderID != "" {
 		
          orderID1= stateIn.OrderID
 		stateIn.OrderID=strconv.FormatFloat(orderID1, 'f', 6, 64)
