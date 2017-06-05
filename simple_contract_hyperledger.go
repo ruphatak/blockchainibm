@@ -264,7 +264,8 @@ func (t *SimpleChaincode) readAssetSchemas(stub shim.ChaincodeStubInterface, arg
 // validate input data : common method called by the CRUD functions
 // ************************************
 func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err error) {
-    var orderID string                  // asset ID
+    var orderID string 
+	var orderID1 float64 	// asset ID
     var state = AssetState{} // The calling function is expecting an object of type AssetState
 
     if len(args) != 1 {
@@ -285,8 +286,10 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     // If no value comes in from the json input string, the values are set to nil
 
     if stateIn.OrderID != nil {
-		stateIn.OrderID=strconv.FormatFloat(stateIn.OrderID, 'f', 6, 64)
-        orderID = strings.TrimSpace(*stateIn.OrderID)
+		
+         orderID1= stateIn.OrderID
+		stateIn.OrderID=strconv.FormatFloat(orderID1, 'f', 6, 64)
+		orderID=stateIn.OrderID
         if orderID == "" {
             err = errors.New("OrderID not passed")
             return state, err
