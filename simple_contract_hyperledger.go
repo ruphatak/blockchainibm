@@ -83,9 +83,12 @@ type AssetState struct {
 	//Orderdate	*time.Time      `json:"orderdate,omitempty"`
 	Health *float64     `json:"health,omitempty"`
 }
+type AssetStateHistory struct {
+	AssetHistory []string `json:"assetHistory"`
+}
 
 var contractState = ContractState{MYVERSION}
-
+const STATEHISTORYKEY string = ".StateHistory"
 // ************************************
 // deploy callback mode
 // ************************************
@@ -150,6 +153,10 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
     } else if function == "readAssetSamples" {
         // returns selected sample objects
         return t.readAssetSamples(stub, args)
+    }  
+	else if function == "readStateHistory" {
+        // returns selected sample objects
+        return t.readStateHistory(stub, args)
     }  else if function == "readAssetSchemas" {
         // returns selected sample objects
         return t.readAssetSchemas(stub, args)
@@ -207,6 +214,26 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 }
 
 /******************* Query Methods ***************/
+// Get the state history for an asset.
+func (t *SimpleChaincode)readStateHistory(stub *shim.ChaincodeStub, assetID string) (AssetStateHistory, error) {
+
+	var ledgerKey = assetID + STATEHISTORYKEY
+	var assetStateHistory AssetStateHistory
+	var historyBytes []byte
+
+	historyBytes, err := stub.GetState(ledgerKey)
+	if err != nil {
+		return assetStateHistory, err
+	}
+
+	err = json.Unmarshal(historyBytes, &assetStateHistory)
+	if err != nil {
+		return assetStateHistory, err
+	}
+
+	return assetStateHistory, nil
+
+}
 ///********************readAsset********************/
 
 func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
@@ -215,7 +242,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     var state AssetState
 
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
-    stateIn, err := t.validateInputCountry(args)
+    stateIn, err := t.validateInput(args)
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
@@ -295,44 +322,6 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     }
 
     stateIn.AssetID = &assetID
-    return stateIn, nil
-}
-// ************************************
-// validate input data Country : common method called by the CRUD functions
-// ************************************
-func (t *SimpleChaincode) validateInputCountry(args []string) (stateIn AssetState, err error) {
-    var country string                  // asset ID
-    var state = AssetState{} // The calling function is expecting an object of type AssetState
-
-    if len(args) != 1 {
-        err = errors.New("Incorrect number of arguments. Expecting a JSON strings with mandatory assetID")
-        return state, err
-    }
-    jsonData := args[0]
-    country = ""
-    stateJSON := []byte(jsonData)
-    err = json.Unmarshal(stateJSON, &stateIn)
-    if err != nil {
-        err = errors.New("Unable to unmarshal input JSON data")
-        return state, err
-        // state is an empty instance of asset state
-    }
-    // was assetID present?
-    // The nil check is required because the asset id is a pointer.
-    // If no value comes in from the json input string, the values are set to nil
-
-    if stateIn.Country != nil {
-        country = strings.TrimSpace(*stateIn.Country)
-        if country == "" {
-            err = errors.New("Country not passed")
-            return state, err
-        }
-    } else {
-        err = errors.New("Country is mandatory in the input JSON data")
-        return state, err
-    }
-
-    stateIn.Country = &country
     return stateIn, nil
 }
 
