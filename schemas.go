@@ -311,10 +311,7 @@ var schemas = `
                     "items": {
                         "description": "A set of fields that constitute the complete asset state.",
                         "properties": {
-                            "alerts": {
-                                "description": "Active means that the alert is in force in this state. Raised means that the alert became active as the result of the event that generated this state. Cleared means that the alert became inactive as the result of the event that generated this state.",
-                                "properties": {
-                                   "assetID": {
+                                "assetID": {
                                 "description": "The ID of a managed asset. The resource focal point for a smart contract.",
                                 "type": "string"
                             },
