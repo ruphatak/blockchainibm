@@ -219,8 +219,8 @@ func (t *SimpleChaincode) readContainerHistory(stub shim.ChaincodeStubInterface,
     }
  
    
-	jsonData := args[0]
-    stateJSON := []byte(jsonData)
+	loanApplicationId := args[0]
+    /*stateJSON := []byte(jsonData)*/
 	err = json.Unmarshal(stateJSON, &stateIn)
     bytes, err := stub.GetState(loanApplicationId+ ".StateHistory")
     if err != nil {
