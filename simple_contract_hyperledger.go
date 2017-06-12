@@ -34,8 +34,8 @@ import (
     "fmt"
     "reflect"
     "strings"
-    "time"
-    "strconv"
+	"time"
+	"strconv"
 
     "github.com/hyperledger/fabric/core/chaincode/shim"
 )
@@ -67,7 +67,7 @@ type Geolocation struct {
 
 // AssetState stores current state for any assset
 type AssetState struct {
-    AssetID     *string      `json:"assetID,omitempty"`     // all assets must have an ID, primary key of contract
+    OrderID     *string      `json:"orderID,omitempty"`     // all assets must have an ID, primary key of contract
     Location    *Geolocation `json:"location,omitempty"`    // current asset location
     Temperature *float64     `json:"temperature,omitempty"` // asset temp
 	Humidity *float64     `json:"humidity,omitempty"`
@@ -79,7 +79,7 @@ type AssetState struct {
 	Destination     *string      `json:"destination,omitempty"` 
 	Content     *string      `json:"content,omitempty"`  
 	Country     *string      `json:"country,omitempty"`  
-	Orderid *float64     `json:"orderid,omitempty"`	
+	Container *string     `json:"container,omitempty"`	
 	//Timestamp     *time.Time      `json:"timestamp,omitempty"`  
 	Time     *float64      `json:"time,omitempty"` 
 	//Orderdate	*time.Time      `json:"orderdate,omitempty"`
