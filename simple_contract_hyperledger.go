@@ -304,7 +304,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
 //******************** createOrUpdateAsset ********************/
 
 func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var orderId int64 // asset ID                    // used when looking in map
+    var orderID int64 // asset ID                    // used when looking in map
     var err error
     var stateIn AssetState
     var stateStub AssetState
@@ -315,7 +315,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     if err != nil {
         return nil, err
     }
-    orderID = *stateIn.OrderID
+    orderID = stateIn.OrderID
     // Partial updates introduced here
     // Check if asset record existed in stub
     assetBytes, err := stub.GetState(strconv.FormatInt(orderID, 10))
