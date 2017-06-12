@@ -198,7 +198,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     if err != nil {
         return nil, err
     }
-    assetID = *stateIn.AssetID
+    assetID = *stateIn.OrderID
     // Delete the key / asset from the ledger
     err = stub.DelState(assetID)
     if err != nil {
@@ -222,7 +222,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
-    assetID = *stateIn.AssetID
+    assetID = *stateIn.OrderID
     // Get the state from the ledger
     assetBytes, err := stub.GetState(assetID)
     if err != nil || len(assetBytes) == 0 {
@@ -286,8 +286,8 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     // The nil check is required because the asset id is a pointer.
     // If no value comes in from the json input string, the values are set to nil
 
-    if stateIn.AssetID != nil {
-        assetID = strings.TrimSpace(*stateIn.AssetID)
+    if stateIn.OrderID != nil {
+        assetID = strings.TrimSpace(*stateIn.OrderID)
         if assetID == "" {
             err = errors.New("AssetID not passed")
             return state, err
@@ -297,7 +297,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
         return state, err
     }
 
-    stateIn.AssetID = &assetID
+    stateIn.OrderID = &assetID
     return stateIn, nil
 }
 
