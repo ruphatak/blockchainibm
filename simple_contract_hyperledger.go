@@ -33,7 +33,10 @@ import (
     "errors"
     "fmt"
     "reflect"
+    "strings"
+    "time"
     "strconv"
+
     "github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
@@ -64,7 +67,7 @@ type Geolocation struct {
 
 // AssetState stores current state for any assset
 type AssetState struct {
-    OrderID      string      `json:"orderID,omitempty"`     // all assets must have an ID, primary key of contract
+    AssetID     *string      `json:"assetID,omitempty"`     // all assets must have an ID, primary key of contract
     Location    *Geolocation `json:"location,omitempty"`    // current asset location
     Temperature *float64     `json:"temperature,omitempty"` // asset temp
 	Humidity *float64     `json:"humidity,omitempty"`
@@ -76,7 +79,7 @@ type AssetState struct {
 	Destination     *string      `json:"destination,omitempty"` 
 	Content     *string      `json:"content,omitempty"`  
 	Country     *string      `json:"country,omitempty"`  
-	Container *string     `json:"container,omitempty"`	
+	Orderid *float64     `json:"orderid,omitempty"`	
 	//Timestamp     *time.Time      `json:"timestamp,omitempty"`  
 	Time     *float64      `json:"time,omitempty"` 
 	//Orderdate	*time.Time      `json:"orderdate,omitempty"`
@@ -122,10 +125,10 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
     // Handle different functions
     if function == "createAsset" {
-        // create orderID
+        // create assetID
         return t.createAsset(stub, args)
     } else if function == "updateAsset" {
-        // create orderID
+        // create assetID
         return t.updateAsset(stub, args)
     } else if function == "deleteAsset" {
         // Deletes an asset by ID from the ledger
@@ -142,14 +145,14 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
     // Handle different functions
     if function == "readAsset" {
-        // gets the state for an orderID as a JSON struct
+        // gets the state for an assetID as a JSON struct
         return t.readAsset(stub, args)
     } else if function == "readAssetObjectModel" {
         return t.readAssetObjectModel(stub, args)
     } else if function == "readAssetSamples" {
         // returns selected sample objects
         return t.readAssetSamples(stub, args)
-    }  else if function == "readAssetSchemas" {
+    } else if function == "readAssetSchemas" {
         // returns selected sample objects
         return t.readAssetSchemas(stub, args)
     }
@@ -186,7 +189,7 @@ func (t *SimpleChaincode) updateAsset(stub shim.ChaincodeStubInterface, args []s
 //******************** deleteAsset ********************/
 
 func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var orderID string // asset ID
+    var assetID string // asset ID
     var err error
     var stateIn AssetState
 
@@ -195,9 +198,9 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
     if err != nil {
         return nil, err
     }
-    orderID = *stateIn.OrderID
+    assetID = *stateIn.AssetID
     // Delete the key / asset from the ledger
-    err = stub.DelState(orderID)
+    err = stub.DelState(assetID)
     if err != nil {
         err = errors.New("DELSTATE failed! : " + fmt.Sprint(err))
         return nil, err
@@ -207,10 +210,10 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
 
 /******************* Query Methods ***************/
 
-///********************readAsset********************/
+//********************readAsset********************/
 
 func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var country string // asset ID
+    var assetID string // asset ID
     var err error
     var state AssetState
 
@@ -219,9 +222,9 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     if err != nil {
         return nil, errors.New("Asset does not exist!")
     }
-    country = *stateIn.Country
+    assetID = *stateIn.AssetID
     // Get the state from the ledger
-    assetBytes, err := stub.GetState(country)
+    assetBytes, err := stub.GetState(assetID)
     if err != nil || len(assetBytes) == 0 {
         err = errors.New("Unable to get asset state from ledger")
         return nil, err
@@ -263,16 +266,15 @@ func (t *SimpleChaincode) readAssetSchemas(stub shim.ChaincodeStubInterface, arg
 // validate input data : common method called by the CRUD functions
 // ************************************
 func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err error) {
-    var orderID string 
-	var orderID1 float64 	// asset ID
+    var assetID string                  // asset ID
     var state = AssetState{} // The calling function is expecting an object of type AssetState
 
     if len(args) != 1 {
-        err = errors.New("Incorrect number of arguments. Expecting a JSON strings with mandatory orderID")
+        err = errors.New("Incorrect number of arguments. Expecting a JSON strings with mandatory assetID")
         return state, err
     }
     jsonData := args[0]
-    orderID = ""
+    assetID = ""
     stateJSON := []byte(jsonData)
     err = json.Unmarshal(stateJSON, &stateIn)
     if err != nil {
@@ -280,32 +282,29 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
         return state, err
         // state is an empty instance of asset state
     }
-    // was orderID present?
+    // was assetID present?
     // The nil check is required because the asset id is a pointer.
     // If no value comes in from the json input string, the values are set to nil
 
-    if stateIn.OrderID != "" {
-		
-         orderID1= stateIn.OrderID
-		stateIn.OrderID=strconv.FormatFloat(orderID1, 'f', 6, 64)
-		orderID=stateIn.OrderID
-        if orderID == "" {
-            err = errors.New("OrderID not passed")
+    if stateIn.AssetID != nil {
+        assetID = strings.TrimSpace(*stateIn.AssetID)
+        if assetID == "" {
+            err = errors.New("AssetID not passed")
             return state, err
         }
     } else {
-        err = errors.New("Order id is mandatory in the input JSON data")
+        err = errors.New("Asset id is mandatory in the input JSON data")
         return state, err
     }
 
-    stateIn.OrderID = orderID
+    stateIn.AssetID = &assetID
     return stateIn, nil
 }
 
 //******************** createOrUpdateAsset ********************/
 
 func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var orderID string // asset ID                    // used when looking in map
+    var orderId int64 // asset ID                    // used when looking in map
     var err error
     var stateIn AssetState
     var stateStub AssetState
@@ -316,12 +315,13 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     if err != nil {
         return nil, err
     }
-    orderID = stateIn.OrderID
+    orderID = *stateIn.OrderID
     // Partial updates introduced here
     // Check if asset record existed in stub
-    assetBytes, err := stub.GetState(orderID)
+    assetBytes, err := stub.GetState(strconv.FormatInt(orderID, 10))
     if err != nil || len(assetBytes) == 0 {
         // This implies that this is a 'create' scenario
+		stateIn.OrderID=strconv.FormatInt(orderID, 10)
         stateStub = stateIn // The record that goes into the stub is the one that cme in
     } else {
         // This is an update scenario
@@ -345,7 +345,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     // Get existing state from the stub
 
     // Write the new state to the ledger
-    err = stub.PutState(orderID, stateJSON)
+    err = stub.PutState(assetID, stateJSON)
     if err != nil {
         err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
         return nil, err
