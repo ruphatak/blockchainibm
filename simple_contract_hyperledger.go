@@ -84,7 +84,9 @@ type AssetState struct {
 	//Orderdate	*time.Time      `json:"orderdate,omitempty"`
 	Health *float64     `json:"health,omitempty"`
 }
-
+type AssetStateHistory struct {
+	AssetHistory []string `json:"assethistory"`
+}
 var contractState = ContractState{MYVERSION}
 
 // ************************************
