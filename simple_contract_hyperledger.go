@@ -303,30 +303,29 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
 //******************** createOrUpdateAsset ********************/
 
 func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-   // var assetID string // asset ID                    // used when looking in map
-   // var err error
-	//var health float64 //health
+    var assetID string // asset ID                    // used when looking in map
+    var err error
+	var health float64 //health
     var stateIn AssetState
     var stateStub AssetState
 
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
 
-   // stateIn, err = t.validateInput(args)
-    /*if err != nil {
+    stateIn, err = t.validateInput(args)
+    if err != nil {
         return nil, err
-    }*/
-  //  assetID = *stateIn.AssetID
-	//health =*stateIn.Health
+    }
+    assetID = *stateIn.AssetID
+	health =*stateIn.Health
     // Partial updates introduced here
     // Check if asset record existed in stub
-	//fmt.Sprintf("Helath is dhajshfsadkfhsidfh: %f", health)
-  //  assetBytes, err := stub.GetState(assetID)
-  /*  if err != nil || len(assetBytes) == 0 {
+	fmt.Sprintf("Helath is dhajshfsadkfhsidfh: %f", health)
+    assetBytes, err := stub.GetState(assetID)
+    if err != nil || len(assetBytes) == 0 {
         // This implies that this is a 'create' scenario
-	*/	
+		
         stateStub = stateIn // The record that goes into the stub is the one that cme in
-	fmt.Sprint(stateStub)
-   /* } else {
+    } else {
         // This is an update scenario
         err = json.Unmarshal(assetBytes, &stateStub)
         if err != nil {
@@ -340,22 +339,22 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
             err = errors.New("Unable to merge state")
             return nil, err
         }
-    }*/
+    }
 	
-    //stateJSON, err := json.Marshal(stateStub)
-    //if err != nil {
-    //    return nil, errors.New("Marshal failed for contract state" + fmt.Sprint(err))
-    //}
-    // Get existing state from the stub
+    stateJSON, err := json.Marshal(stateStub)
+    if err != nil {
+       return nil, errors.New("Marshal failed for contract state" + fmt.Sprint(err))
+   }
+     Get existing state from the stub
 
     // Write the new state to the ledger
-	//if health <= 96 {
-    //err = stub.PutState(assetID, stateJSON)
-    //if err != nil {
-    //    err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
-     //   return nil, err
-    //}
-	//}
+	if health <= 96 {
+    err = stub.PutState(assetID, stateJSON)
+    if err != nil {
+        err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
+        return nil, err
+    }
+	}
     return nil, nil
 }
 
