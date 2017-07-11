@@ -307,7 +307,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     var err error
 	//var health float64 //health
     var stateIn AssetState
-    //var stateStub AssetState
+    var stateStub AssetState
 
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
 
@@ -323,9 +323,10 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
   //  assetBytes, err := stub.GetState(assetID)
   /*  if err != nil || len(assetBytes) == 0 {
         // This implies that this is a 'create' scenario
-		
+	*/	
         stateStub = stateIn // The record that goes into the stub is the one that cme in
-    } else {
+	fmt.Sprint(stateStub)
+   /* } else {
         // This is an update scenario
         err = json.Unmarshal(assetBytes, &stateStub)
         if err != nil {
