@@ -304,17 +304,17 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
 
 func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
    // var assetID string // asset ID                    // used when looking in map
-    var err error
+   // var err error
 	//var health float64 //health
     var stateIn AssetState
     var stateStub AssetState
 
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
 
-    stateIn, err = t.validateInput(args)
-    if err != nil {
+   // stateIn, err = t.validateInput(args)
+    /*if err != nil {
         return nil, err
-    }
+    }*/
   //  assetID = *stateIn.AssetID
 	//health =*stateIn.Health
     // Partial updates introduced here
