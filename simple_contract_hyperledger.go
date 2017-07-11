@@ -319,7 +319,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
 	health =*stateIn.Health
     // Partial updates introduced here
     // Check if asset record existed in stub
-	fmt.Printf("Helath is dhajshfsadkfhsidfh: %f", health)
+	fmt.Sprintf("Helath is dhajshfsadkfhsidfh: %f", health)
     assetBytes, err := stub.GetState(assetID)
     if err != nil || len(assetBytes) == 0 {
         // This implies that this is a 'create' scenario
