@@ -341,10 +341,10 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
         }
     }
 	
-    stateJSON, err := json.Marshal(stateStub)
-    if err != nil {
-        return nil, errors.New("Marshal failed for contract state" + fmt.Sprint(err))
-    }
+    //stateJSON, err := json.Marshal(stateStub)
+    //if err != nil {
+    //    return nil, errors.New("Marshal failed for contract state" + fmt.Sprint(err))
+    //}
     // Get existing state from the stub
 
     // Write the new state to the ledger
