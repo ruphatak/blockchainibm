@@ -319,7 +319,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
 	health =*stateIn.Health
     // Partial updates introduced here
     // Check if asset record existed in stub
-	if health <= 96 {
+	fmt.Printf("Helath is dhajshfsadkfhsidfh: %f", health)
     assetBytes, err := stub.GetState(assetID)
     if err != nil || len(assetBytes) == 0 {
         // This implies that this is a 'create' scenario
@@ -340,7 +340,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
             return nil, err
         }
     }
-	}
+	
     stateJSON, err := json.Marshal(stateStub)
     if err != nil {
         return nil, errors.New("Marshal failed for contract state" + fmt.Sprint(err))
