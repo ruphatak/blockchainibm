@@ -348,13 +348,13 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     // Get existing state from the stub
 
     // Write the new state to the ledger
-	if health <= 96 {
-    err = stub.PutState(assetID, stateJSON)
-    if err != nil {
-        err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
-        return nil, err
-    }
-	}
+	//if health <= 96 {
+    //err = stub.PutState(assetID, stateJSON)
+    //if err != nil {
+    //    err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
+     //   return nil, err
+    //}
+	//}
     return nil, nil
 }
 
