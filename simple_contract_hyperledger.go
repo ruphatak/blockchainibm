@@ -48,7 +48,7 @@ const CONTRACTSTATEKEY string = "ContractStateKey"
 
 // MYVERSION must use this to deploy contract
 const MYVERSION string = "1.0"
-
+const HISTKEY string = "_HIST"
 // ************************************
 // asset and contract state
 // ************************************
@@ -148,7 +148,9 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
         return t.readAsset(stub, args)
     } else if function == "readAssetObjectModel" {
         return t.readAssetObjectModel(stub, args)
-    } else if function == "readAssetSamples" {
+    } else if function == "readAssetHistory" {
+        return t.readAssetHistory(stub, args)
+    	}else if function == "readAssetSamples" {
         // returns selected sample objects
         return t.readAssetSamples(stub, args)
     } else if function == "readAssetSchemas" {
@@ -235,7 +237,32 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
     }
     return assetBytes, nil
 }
+//*************readAssetHistory*****************/
 
+func (t *SimpleChaincode) readAssetHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	var aHistKey string // asset ID history key
+	var err error
+	var state AssetState
+
+	// validate input data for number of args, Unmarshaling to asset state and obtain asset id
+	stateIn, err := t.validateInput(args)
+	if err != nil {
+		return nil, errors.New("Asset does not exist!")
+	}
+	aHistKey = *stateIn.AssetID + HISTKEY
+	// Get the state from the ledger
+	assetBytes, err := stub.GetState(aHistKey)
+	if err != nil || len(assetBytes) == 0 {
+		err = errors.New("Unable to get asset history from ledger")
+		return nil, err
+	}
+	err = json.Unmarshal(assetBytes, &state)
+	if err != nil {
+		err = errors.New("Unable to unmarshal asset history data obtained from ledger")
+		return nil, err
+	}
+	return assetBytes, nil
+}
 //*************readAssetObjectModel*****************/
 
 func (t *SimpleChaincode) readAssetObjectModel(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
