@@ -345,7 +345,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     if err != nil {
        return nil, errors.New("Marshal failed for contract state" + fmt.Sprint(err))
    }
-     Get existing state from the stub
+     //Get existing state from the stub
 
     // Write the new state to the ledger
 	if health <= 96 {
