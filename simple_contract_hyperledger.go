@@ -307,7 +307,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     var err error
 	var health float64 //health
     var stateIn AssetState
-    var stateStub AssetState
+    //var stateStub AssetState
 
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
 
