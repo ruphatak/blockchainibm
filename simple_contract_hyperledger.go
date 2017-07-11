@@ -335,7 +335,9 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
 	var health float64 //health
     var stateIn AssetState
     var stateStub AssetState
-
+	//Added to maintain history
+	var assetStateHistory AssetStateHistory
+	var aHistoryState []byte
     // validate input data for number of args, Unmarshaling to asset state and obtain asset id
 
     stateIn, err = t.validateInput(args)
@@ -344,6 +346,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     }
     assetID = *stateIn.AssetID
 	health =*stateIn.Health
+	aHistKey := assetID + HISTKEY
     // Partial updates introduced here
     // Check if asset record existed in stub
 	fmt.Sprintf("Helath is dhajshfsadkfhsidfh: %f", health)
@@ -352,6 +355,19 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
         // This implies that this is a 'create' scenario
 		
         stateStub = stateIn // The record that goes into the stub is the one that cme in
+		
+		stateInJSON, err := json.Marshal(stateIn)
+		if err != nil {
+			return nil, errors.New("Marshal failed for incoming contract state" + fmt.Sprint(err))
+		}
+		var aHistory = AssetStateHistory{make([]string, 1)}
+		aHistory.AssetHistory[0] = string(stateInJSON)
+		aState, err := json.Marshal(aHistory)
+		if err != nil {
+			return nil, err
+		}
+
+		aHistoryState = []byte(aState)
     } else {
         // This is an update scenario
         err = json.Unmarshal(assetBytes, &stateStub)
@@ -366,6 +382,31 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
             err = errors.New("Unable to merge state")
             return nil, err
         }
+		// Do We want to store the raw data in history? Right now it stores processed data
+		stateInJSON, err := json.Marshal(stateIn)
+		if err != nil {
+			return nil, errors.New("Marshal failed for incoming contract state" + fmt.Sprint(err))
+		}
+
+		aHistory, err := stub.GetState(aHistKey)
+		if err != nil {
+			return nil, err
+		}
+
+		err = json.Unmarshal(aHistory, &assetStateHistory)
+		if err != nil {
+			return nil, err
+		}
+
+		var aSlice = make([]string, 0)
+		aSlice = append(aSlice, string(stateInJSON))
+		aSlice = append(aSlice, assetStateHistory.AssetHistory...)
+		assetStateHistory.AssetHistory = aSlice
+		aState, err := json.Marshal(assetStateHistory)
+		if err != nil {
+			return nil, err
+		}
+		aHistoryState = []byte(aState)
     }
 	
     stateJSON, err := json.Marshal(stateStub)
@@ -381,6 +422,10 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
         err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
         return nil, err
     }
+	err = stub.PutState(aHistKey, aHistoryState)
+	if err != nil {
+		return nil, errors.New("Asset State transaction history failed PUT to ledger: " + fmt.Sprint(err))
+	}
 	}
     return nil, nil
 }
