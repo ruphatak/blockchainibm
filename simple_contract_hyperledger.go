@@ -321,7 +321,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     // Check if asset record existed in stub
 	fmt.Sprintf("Helath is dhajshfsadkfhsidfh: %f", health)
     assetBytes, err := stub.GetState(assetID)
-    if err != nil || len(assetBytes) == 0 {
+  /*  if err != nil || len(assetBytes) == 0 {
         // This implies that this is a 'create' scenario
 		
         stateStub = stateIn // The record that goes into the stub is the one that cme in
@@ -339,7 +339,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
             err = errors.New("Unable to merge state")
             return nil, err
         }
-    }
+    }*/
 	
     //stateJSON, err := json.Marshal(stateStub)
     //if err != nil {
