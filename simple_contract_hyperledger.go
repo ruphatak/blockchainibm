@@ -267,7 +267,7 @@ func (t *SimpleChaincode) readAssetSchemas(stub shim.ChaincodeStubInterface, arg
 func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err error) {
     var assetID string                  // asset ID
     var state = AssetState{} // The calling function is expecting an object of type AssetState
-
+	
     if len(args) != 1 {
         err = errors.New("Incorrect number of arguments. Expecting a JSON strings with mandatory assetID")
         return state, err
@@ -305,6 +305,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
 func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
     var assetID string // asset ID                    // used when looking in map
     var err error
+	var health float64 //health
     var stateIn AssetState
     var stateStub AssetState
 
@@ -315,6 +316,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
         return nil, err
     }
     assetID = *stateIn.AssetID
+	health =*stateIn.Health
     // Partial updates introduced here
     // Check if asset record existed in stub
     assetBytes, err := stub.GetState(assetID)
@@ -344,11 +346,13 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     // Get existing state from the stub
 
     // Write the new state to the ledger
+if health <= 96 {
     err = stub.PutState(assetID, stateJSON)
     if err != nil {
         err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
         return nil, err
     }
+	}
     return nil, nil
 }
 
