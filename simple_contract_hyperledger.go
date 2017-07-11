@@ -303,9 +303,9 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
 //******************** createOrUpdateAsset ********************/
 
 func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-    var assetID string // asset ID                    // used when looking in map
+   // var assetID string // asset ID                    // used when looking in map
     var err error
-	var health float64 //health
+	//var health float64 //health
     var stateIn AssetState
     //var stateStub AssetState
 
@@ -315,8 +315,8 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     if err != nil {
         return nil, err
     }
-    assetID = *stateIn.AssetID
-	health =*stateIn.Health
+  //  assetID = *stateIn.AssetID
+	//health =*stateIn.Health
     // Partial updates introduced here
     // Check if asset record existed in stub
 	fmt.Sprintf("Helath is dhajshfsadkfhsidfh: %f", health)
