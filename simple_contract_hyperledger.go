@@ -346,7 +346,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     var assetID int64	// 
     var err error
 	var health float64 //health
-	var status string //status
+	//var status string //status
     var stateIn AssetState
     var stateStub AssetState
 	
