@@ -309,7 +309,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
         return state, err
     }
     jsonData := args[0]
-    assetID = ""
+    //assetID = ""
     stateJSON := []byte(jsonData)
     err = json.Unmarshal(stateJSON, &stateIn)
     if err != nil {
@@ -321,11 +321,11 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     // The nil check is required because the asset id is a pointer.
     // If no value comes in from the json input string, the values are set to nil
 
-    if stateIn.AssetID != nil {
-        assetID = strings.TrimSpace(*stateIn.OrderID)
+    if stateIn.OrderID != nil {
+        assetID = *stateIn.OrderID
 		 
 		orderID= strconv.FormatInt(assetID, 10)
-        if assetID == "" {
+        if orderID == "" {
             err = errors.New("AssetID not passed")
             return state, err
         }
