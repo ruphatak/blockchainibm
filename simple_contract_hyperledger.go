@@ -362,7 +362,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     assetID = *stateIn.OrderID
 	orderID = strconv.FormatInt(assetID, 10)
 	health =*stateIn.Health
-	status =*stateIn.Status
+	//status =*stateIn.Status
 	aHistKey := orderID + HISTKEY
     // Partial updates introduced here
     // Check if asset record existed in stub
