@@ -49,6 +49,7 @@ const CONTRACTSTATEKEY string = "ContractStateKey"
 // MYVERSION must use this to deploy contract
 const MYVERSION string = "1.0"
 const HISTKEY string = "_HIST"
+var STATUS string = ""
 // ************************************
 // asset and contract state
 // ************************************
@@ -346,7 +347,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     var assetID int64	// 
     var err error
 	var health float64 //health
-	//var status string //status
+	var status string //status
     var stateIn AssetState
     var stateStub AssetState
 	
@@ -362,7 +363,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
     assetID = *stateIn.OrderID
 	orderID = strconv.FormatInt(assetID, 10)
 	health =*stateIn.Health
-	//status =*stateIn.Status
+	status =*stateIn.Status
 	aHistKey := orderID + HISTKEY
     // Partial updates introduced here
     // Check if asset record existed in stub
@@ -431,9 +432,9 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
        return nil, errors.New("Marshal failed for contract state" + fmt.Sprint(err))
    }
      //Get existing state from the stub
-
+	
     // Write the new state to the ledger
-	if health <= 96 {
+	if health <= 96 || status != STATUS{
     err = stub.PutState(orderID, stateJSON)
     if err != nil {
         err = errors.New("PUT ledger state failed: " + fmt.Sprint(err))
@@ -443,6 +444,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
 	if err != nil {
 		return nil, errors.New("Asset State transaction history failed PUT to ledger: " + fmt.Sprint(err))
 	}
+	STATUS = status
 	}
     return nil, nil
 }
