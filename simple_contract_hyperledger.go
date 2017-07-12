@@ -34,6 +34,7 @@ import (
     "fmt"
     "reflect"
     "strings"
+	"strconv"
    
 
     "github.com/hyperledger/fabric/core/chaincode/shim"
@@ -201,7 +202,7 @@ func (t *SimpleChaincode) deleteAsset(stub shim.ChaincodeStubInterface, args []s
         return nil, err
     }
     assetID = *stateIn.OrderID
-	orderID:= strconv.FormatInt(assetID, 10)
+	orderID = strconv.FormatInt(assetID, 10)
     // Delete the key / asset from the ledger
     err = stub.DelState(orderID)
     if err != nil {
@@ -227,7 +228,7 @@ func (t *SimpleChaincode) readAsset(stub shim.ChaincodeStubInterface, args []str
         return nil, errors.New("Asset does not exist!")
     }
     assetID = *stateIn.OrderID
-	orderID:= strconv.FormatInt(assetID, 10)
+	orderID= strconv.FormatInt(assetID, 10)
     // Get the state from the ledger
     assetBytes, err := stub.GetState(orderID)
     if err != nil || len(assetBytes) == 0 {
@@ -255,7 +256,7 @@ func (t *SimpleChaincode) readAssetHistory(stub shim.ChaincodeStubInterface, arg
 		return nil, errors.New("Asset does not exist!")
 	}
 	assetID = *stateIn.OrderID
-	orderID:= strconv.FormatInt(assetID, 10)
+	orderID = strconv.FormatInt(assetID, 10)
 	aHistKey = orderID + HISTKEY
 	// Get the state from the ledger
 	assetBytes, err := stub.GetState(aHistKey)
@@ -323,7 +324,7 @@ func (t *SimpleChaincode) validateInput(args []string) (stateIn AssetState, err 
     if stateIn.AssetID != nil {
         assetID = strings.TrimSpace(*stateIn.OrderID)
 		 
-		orderID:= strconv.FormatInt(assetID, 10)
+		orderID= strconv.FormatInt(assetID, 10)
         if assetID == "" {
             err = errors.New("AssetID not passed")
             return state, err
@@ -358,7 +359,7 @@ func (t *SimpleChaincode) createOrUpdateAsset(stub shim.ChaincodeStubInterface, 
         return nil, err
     }
     assetID = *stateIn.OrderID
-	orderID:= strconv.FormatInt(assetID, 10)
+	orderID = strconv.FormatInt(assetID, 10)
 	health =*stateIn.Health
 	status =*stateIn.Status
 	aHistKey := orderID + HISTKEY
